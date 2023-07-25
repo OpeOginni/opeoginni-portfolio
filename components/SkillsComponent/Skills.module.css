@@ -1,0 +1,11 @@
+.section {
+  max-width: 75%;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  padding: 20px 0 20px 0;
+}
+
+.skillsContainer {
+  width: 50%;
+  padding-bottom: 20px;
+}

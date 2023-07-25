@@ -1,0 +1,19 @@
+.section {
+  max-width: 75%;
+  margin: 0 auto;
+  border: 2px solid #ccc;
+  padding: 20px 0 20px 0;
+}
+
+.introContainer {
+  width: 60%;
+  padding-bottom: 20px;
+}
+
+.button {
+  background-color: #5e17eb;
+  border-radius: 10px;
+  color: white;
+  font-size: 11px;
+  padding: 6px;
+}
