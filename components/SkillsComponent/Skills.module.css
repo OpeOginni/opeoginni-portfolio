@@ -1,11 +1,23 @@
 .section {
   max-width: 75%;
   margin: 0 auto;
-  border: 2px solid #ccc;
+  border-bottom: 1px solid hsl(207, 4%, 16%);
   padding: 20px 0 20px 0;
+  padding-bottom: 3.5rem;
 }
 
 .skillsContainer {
   width: 50%;
   padding-bottom: 20px;
+}
+
+.toolImage {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto;
+}
+
+.gridContainer {
+  max-width: 75%;
+  margin: 0 auto;
 }

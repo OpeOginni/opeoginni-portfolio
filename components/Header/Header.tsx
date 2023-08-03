@@ -9,8 +9,8 @@ interface NavLinks {
 
 const HeaderNavLinks: NavLinks[] = [
   { key: 0, name: "Home", link: "/" },
-  { key: 1, name: "Skills/Certs", link: "#skills&certs" },
-  { key: 2, name: "Projects", link: "#projects" },
+  { key: 1, name: "Projects", link: "/projects" },
+  { key: 2, name: "Skills/Certs", link: "#skills&certs" },
   { key: 3, name: "Qualifications", link: "#qualifications" },
   { key: 4, name: "Contact", link: "#contact" },
 ];

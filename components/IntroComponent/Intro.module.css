@@ -1,8 +1,9 @@
 .section {
   max-width: 75%;
   margin: 0 auto;
-  border: 2px solid #ccc;
+  border-bottom: 1px solid hsl(207, 4%, 16%);
   padding: 20px 0 20px 0;
+  padding-bottom: 3.5rem;
 }
 
 .introContainer {
@@ -11,9 +12,15 @@
 }
 
 .button {
-  background-color: #5e17eb;
+  background-color: transparent;
   border-radius: 10px;
-  color: white;
+  color: #5e17eb;
   font-size: 11px;
   padding: 6px;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  outline: 2px solid transparent;
+  display: inline-flex;
+  align-items: center;
 }
