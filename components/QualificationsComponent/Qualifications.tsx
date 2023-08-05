@@ -1,13 +1,12 @@
 import { LiaTrophySolid } from "react-icons/lia";
 import { MdOutlineSchool, MdWorkOutline } from "react-icons/md";
 import styles from "./Qualification.module.css";
-import ToolsAndLanguages from "../SkillsComponent/ToolsAndLanguages";
+import Qualifications from "./QualificationObject";
 import {
-  myLanguages,
-  myTools,
-  myCloud,
-  myCerts,
-} from "../../constants/tools&langages";
+  myEducationQualificaions,
+  myWorkQualifications,
+  myOtherQualifications,
+} from "../../constants/qualifications";
 
 // TODO: Qualifications Component
 export default function QualificationsComponent() {
@@ -26,17 +25,21 @@ export default function QualificationsComponent() {
 
                   <span className="px-4">Education</span>
                 </h1>
-              </div>{" "}
-              <div className="grid grid-cols-3 gap-3">
-                {myLanguages.map((language) => {
-                  return (
-                    <ToolsAndLanguages
-                      key={language.key}
-                      imageLocation={language.imageLocation}
-                      toolName={language.toolName}
-                    />
-                  );
-                })}
+              </div>
+              <div className="flex justify-center">
+                <div className="grid grid-cols-1 gap-7">
+                  {myEducationQualificaions.map((educationQualification) => {
+                    return (
+                      <Qualifications
+                        key={educationQualification.key}
+                        qualification={educationQualification.qualification}
+                        institution={educationQualification.institution}
+                        period={educationQualification.period}
+                        description={educationQualification.description}
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
@@ -50,16 +53,20 @@ export default function QualificationsComponent() {
                     <span className="px-4">Experience</span>
                   </h1>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {myTools.map((tool) => {
-                    return (
-                      <ToolsAndLanguages
-                        key={tool.key}
-                        imageLocation={tool.imageLocation}
-                        toolName={tool.toolName}
-                      />
-                    );
-                  })}
+                <div className="flex justify-center">
+                  <div className="grid grid-cols-1 gap-7">
+                    {myWorkQualifications.map((workQualifications) => {
+                      return (
+                        <Qualifications
+                          key={workQualifications.key}
+                          qualification={workQualifications.qualification}
+                          institution={workQualifications.institution}
+                          period={workQualifications.period}
+                          description={workQualifications.description}
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>
@@ -74,16 +81,20 @@ export default function QualificationsComponent() {
               <span className="px-4">Awards & Accomplishments</span>
             </h1>
           </div>
-          <div className="grid grid-cols-1 gap-3">
-            {myCloud.map((cloud) => {
-              return (
-                <ToolsAndLanguages
-                  key={cloud.key}
-                  imageLocation={cloud.imageLocation}
-                  toolName={cloud.toolName}
-                />
-              );
-            })}
+          <div className="flex justify-center">
+            <div className="grid grid-cols-2 gap-7">
+              {myOtherQualifications.map((otherQualifications) => {
+                return (
+                  <Qualifications
+                    key={otherQualifications.key}
+                    qualification={otherQualifications.qualification}
+                    institution={otherQualifications.institution}
+                    period={otherQualifications.period}
+                    description={otherQualifications.description}
+                  />
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
