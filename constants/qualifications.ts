@@ -39,6 +39,6 @@ export const myOtherQualifications: Qualifications[] = [
         qualification: "Runner Up in Chainlink Spring 2023 Hackathon",
         institution: "Chainlink",
         period: "2023",
-        description: " Won a prize of $2000 for building an application on the FLOW Blockchain that allows users to create Fungible and Non-Fungible tokens without writing any code."
+        description: "Won a prize of $2000 for building an application on the FLOW Blockchain that allows users to create Fungible and Non-Fungible tokens without writing any code."
     }
 ]

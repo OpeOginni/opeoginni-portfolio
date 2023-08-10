@@ -1,6 +1,7 @@
 import IntroComponent from "@/components/IntroComponent/Intro";
 import SkillsComponent from "@/components/SkillsComponent/Skills";
 import QualificationsComponent from "@/components/QualificationsComponent/Qualifications";
+import { ContactComponent } from "@/components/ContactComponent/Contact";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         <IntroComponent />
         <SkillsComponent />
         <QualificationsComponent />
+        <ContactComponent />
       </div>
     </>
   );
