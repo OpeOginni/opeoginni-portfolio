@@ -4,7 +4,7 @@ import Contacts from "./ContactObject";
 
 export default function ContactComponent() {
   return (
-    <section className={styles.section}>
+    <section id="contact" className={styles.section}>
       <div className={styles.container}>
         <div className="grid grid-cols-3 gap-3">
           {myContactDetails.map((contractDetails) => {
