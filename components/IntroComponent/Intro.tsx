@@ -21,7 +21,7 @@ export default function IntroComponent() {
           </p>
         </div>
         <div className="py-12">
-          <a href="#Contact">
+          <a href="#contact">
             <Button variant="outline" colorScheme="purple">
               Say Hey To Me
             </Button>
