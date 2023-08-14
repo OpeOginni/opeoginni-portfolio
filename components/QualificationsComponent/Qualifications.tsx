@@ -16,7 +16,7 @@ export default function QualificationsComponent() {
         <h1 className="text-3xl font-bold py-7 text-center">Qualifications</h1>
       </div>
       <div className="h-max">
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-3">
           <div>
             <div className={styles.gridContainer}>
               <div className="pb-9">
@@ -82,7 +82,7 @@ export default function QualificationsComponent() {
             </h1>
           </div>
           <div className="flex justify-center">
-            <div className="grid grid-cols-2 gap-7">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
               {myOtherQualifications.map((otherQualifications) => {
                 return (
                   <Qualifications

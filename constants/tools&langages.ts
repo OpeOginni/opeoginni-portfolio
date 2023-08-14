@@ -52,7 +52,7 @@ export const myTools: Tools[] = [
     {
         key: 8,
         imageLocation: "/tools/postgresql.svg",
-        toolName: "PostgresSQL"
+        toolName: "PostgreSQL"
 
     },
     {

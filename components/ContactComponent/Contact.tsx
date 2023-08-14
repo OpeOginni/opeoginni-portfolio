@@ -2,7 +2,7 @@ import styles from "./contact.module.css";
 import { myContactDetails } from "@/constants/contact";
 import Contacts from "./ContactObject";
 
-export function ContactComponent() {
+export default function ContactComponent() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>

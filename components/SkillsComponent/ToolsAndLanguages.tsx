@@ -12,7 +12,7 @@ export default function ToolsAndLanguages({ imageLocation, toolName }: Props) {
       <div className="py-7">
         <img className={styles.toolImage} src={imageLocation} alt={toolName} />
       </div>
-      <h1 className=" text-lg pb-2 text-center">{toolName}</h1>
+      <h1 className="text-sm md:text-lg pb-2 text-center">{toolName}</h1>
     </div>
   );
 }

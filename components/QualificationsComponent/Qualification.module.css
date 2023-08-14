@@ -25,3 +25,22 @@
 .qualificationPeriod {
   color: hsl(207, 4%, 56%);
 }
+
+@media only screen and (max-width: 640px) {
+  .qualificationName {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .qualificationInstitution {
+    padding-bottom: 0.5rem;
+    color: hsl(207, 4%, 56%);
+    /* margin-bottom: 0.75rem; */
+  }
+
+  .qualificationContainer {
+    max-width: 95%;
+  }
+}

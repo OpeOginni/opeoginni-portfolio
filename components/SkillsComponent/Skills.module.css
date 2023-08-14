@@ -2,8 +2,19 @@
   max-width: 75%;
   margin: 0 auto;
   border-bottom: 1px solid hsl(207, 4%, 16%);
-  padding: 20px 0 20px 0;
+  padding: 20px 0;
   padding-bottom: 3.5rem;
+}
+
+.gridContainer {
+  max-width: 75%;
+  margin: 0 auto;
+}
+
+.toolImage {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto;
 }
 
 .skillsContainer {
@@ -11,13 +22,14 @@
   padding-bottom: 20px;
 }
 
-.toolImage {
-  width: 65px;
-  height: 65px;
-  margin: 0 auto;
-}
+@media only screen and (max-width: 640px) {
+  .toolImage {
+    width: 40px;
+    height: 40px;
+  }
 
-.gridContainer {
-  max-width: 75%;
-  margin: 0 auto;
+  .gridContainer {
+    max-width: 95%;
+    margin: 0 auto;
+  }
 }
