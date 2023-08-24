@@ -1,5 +1,4 @@
 export interface Qualifications {
-    key: number;
     qualification: string;
     institution: string;
     period: string;
@@ -8,7 +7,6 @@ export interface Qualifications {
 
 export const myEducationQualificaions: Qualifications[] = [
     {
-        key: 1,
         qualification: "Bachelor of Science in Computer Science",
         institution: "IU Of Applied Sciences - Bad Honnef, Germany",
         period: "2022 - present",
@@ -18,14 +16,12 @@ export const myEducationQualificaions: Qualifications[] = [
 
 export const myWorkQualifications: Qualifications[] = [
     {
-        key: 1,
         qualification: "Junior Backend Developer",
         institution: "Centiiv",
         period: "2022 - present",
         description: ""
     },
     {
-        key: 2,
         qualification: "Backend Developer",
         institution: "Eweko",
         period: "2023 - present",
@@ -35,7 +31,6 @@ export const myWorkQualifications: Qualifications[] = [
 
 export const myOtherQualifications: Qualifications[] = [
     {
-        key: 1,
         qualification: "Runner Up in Chainlink Spring 2023 Hackathon",
         institution: "Chainlink",
         period: "2023",

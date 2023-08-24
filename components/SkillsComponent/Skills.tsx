@@ -33,7 +33,7 @@ export default function SkillsComponent() {
                 {myLanguages.map((language) => {
                   return (
                     <ToolsAndLanguages
-                      key={language.key}
+                      key={language.toolName}
                       imageLocation={language.imageLocation}
                       toolName={language.toolName}
                     />
@@ -56,7 +56,7 @@ export default function SkillsComponent() {
                   {myTools.map((tool) => {
                     return (
                       <ToolsAndLanguages
-                        key={tool.key}
+                        key={tool.toolName}
                         imageLocation={tool.imageLocation}
                         toolName={tool.toolName}
                       />
@@ -78,7 +78,7 @@ export default function SkillsComponent() {
               {myCloud.map((cloud) => {
                 return (
                   <ToolsAndLanguages
-                    key={cloud.key}
+                    key={cloud.toolName}
                     imageLocation={cloud.imageLocation}
                     toolName={cloud.toolName}
                   />
@@ -98,7 +98,7 @@ export default function SkillsComponent() {
               {myCerts.map((certs) => {
                 return (
                   <ToolsAndLanguages
-                    key={certs.key}
+                    key={certs.toolName}
                     imageLocation={certs.imageLocation}
                     toolName={certs.toolName}
                   />
