@@ -94,17 +94,23 @@ export default function SkillsComponent() {
                 <span className="px-4">Certifications</span>
               </h1>
             </div>
-            <div className="grid grid-cols-3 gap-3">
-              {myCerts.map((certs) => {
-                return (
-                  <ToolsAndLanguages
-                    key={certs.toolName}
-                    imageLocation={certs.imageLocation}
-                    toolName={certs.toolName}
-                  />
-                );
-              })}
-            </div>
+            {myCerts.length < 1 ? (
+              <div className="text-center text-base font-bold">
+                Working on Bagging Certs...
+              </div>
+            ) : (
+              <div className="grid grid-cols-3 gap-3">
+                {myCerts.map((certs) => {
+                  return (
+                    <ToolsAndLanguages
+                      key={certs.toolName}
+                      imageLocation={certs.imageLocation}
+                      toolName={certs.toolName}
+                    />
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </div>

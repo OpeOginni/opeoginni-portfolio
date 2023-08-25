@@ -94,16 +94,5 @@ export const myCloud: Tools[] = [
 ]
 
 export const myCerts: Tools[] = [
-    {
-        imageLocation: "/cloud/aws.svg",
-        toolName: "AWS"
-    },
-    {
-        imageLocation: "/cloud/aws.svg",
-        toolName: "AWS"
-    },
-    {
-        imageLocation: "/cloud/aws.svg",
-        toolName: "AWS"
-    }
+
 ]
