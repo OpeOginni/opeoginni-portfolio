@@ -10,7 +10,7 @@ export default function ContactComponent() {
           {myContactDetails.map((contractDetails) => {
             return (
               <Contacts
-                key={contractDetails.key}
+                key={contractDetails.medium}
                 name={contractDetails.name}
                 medium={contractDetails.medium}
                 link={contractDetails.link}

@@ -19,21 +19,21 @@ export default function SkillsComponent() {
         </h1>
       </div>
       <div className="h-max">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-3">
           <div>
             <div className={styles.gridContainer}>
-              <div className="pb-9">
+              <div className="pb-3 lg:pb-9">
                 <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                   <HiOutlineCode />
 
                   <span className="px-4">Languages</span>
                 </h1>
-              </div>{" "}
+              </div>
               <div className="grid grid-cols-3 gap-3">
                 {myLanguages.map((language) => {
                   return (
                     <ToolsAndLanguages
-                      key={language.key}
+                      key={language.toolName}
                       imageLocation={language.imageLocation}
                       toolName={language.toolName}
                     />
@@ -45,7 +45,7 @@ export default function SkillsComponent() {
           <div>
             <div>
               <div className={styles.gridContainer}>
-                <div className="pb-9">
+                <div className="pb-3 lg:pb-9">
                   <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                     <LiaToolsSolid />
 
@@ -56,7 +56,7 @@ export default function SkillsComponent() {
                   {myTools.map((tool) => {
                     return (
                       <ToolsAndLanguages
-                        key={tool.key}
+                        key={tool.toolName}
                         imageLocation={tool.imageLocation}
                         toolName={tool.toolName}
                       />
@@ -67,7 +67,7 @@ export default function SkillsComponent() {
             </div>
           </div>
           <div>
-            <div className="py-9">
+            <div className="pb-3 lg:pb-9">
               <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                 <AiOutlineCloud />
 
@@ -78,7 +78,7 @@ export default function SkillsComponent() {
               {myCloud.map((cloud) => {
                 return (
                   <ToolsAndLanguages
-                    key={cloud.key}
+                    key={cloud.toolName}
                     imageLocation={cloud.imageLocation}
                     toolName={cloud.toolName}
                   />
@@ -87,7 +87,7 @@ export default function SkillsComponent() {
             </div>
           </div>
           <div>
-            <div className="py-9">
+            <div className="pb-3 lg:pb-9">
               <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                 <HiOutlineDocumentText />
 
@@ -98,7 +98,7 @@ export default function SkillsComponent() {
               {myCerts.map((certs) => {
                 return (
                   <ToolsAndLanguages
-                    key={certs.key}
+                    key={certs.toolName}
                     imageLocation={certs.imageLocation}
                     toolName={certs.toolName}
                   />

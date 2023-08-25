@@ -1,0 +1,19 @@
+.section {
+  max-width: 75%;
+  margin: 0 auto;
+  padding: 20px 0 20px 0;
+  padding-bottom: 3.5rem;
+  padding-top: 3.5rem;
+}
+
+.techImage {
+  width: 30px;
+  height: 30px;
+}
+
+@media only screen and (max-width: 640px) {
+  .section {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+}
