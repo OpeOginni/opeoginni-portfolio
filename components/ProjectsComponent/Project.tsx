@@ -49,19 +49,7 @@ export const Project = ({
             {description}
           </div>
           <ProjectLinksComp links={links} />
-          <div
-            className={cn(
-              techTools
-                ? `grid grid-cols-${
-                    techTools?.length + 10 - techTools?.length
-                  } gap-3
-                  lg:grid-cols-${
-                    techTools?.length + 10 - techTools?.length
-                  }
-                  `
-                : "grid"
-            )}
-          >
+          <div className={styles.ProjectTech}>
             {techTools?.map((tech) => {
               return (
                 <TechUsed

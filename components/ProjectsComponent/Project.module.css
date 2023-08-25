@@ -11,6 +11,12 @@
   height: 30px;
 }
 
+.ProjectTech {
+  grid-template-columns: repeat(10, minmax(0px, 1fr));
+  gap: 0.75rem;
+  display: grid;
+}
+
 @media only screen and (max-width: 640px) {
   .section {
     max-width: 95%;
