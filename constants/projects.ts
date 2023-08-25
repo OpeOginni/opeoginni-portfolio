@@ -76,7 +76,7 @@ export const myProjects: Projects[] = [
             myTools[6]
 
         ],
-        image: "/projects/cardify.png"
+        image: "/projects/cardify-4.png"
 
     }
 ]

@@ -78,7 +78,7 @@ export default function QualificationsComponent() {
             <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
               <LiaTrophySolid />
 
-              <span className="px-4">Awards & Accomplishments</span>
+              <span className="px-4">Accomplishments</span>
             </h1>
           </div>
           <div className="flex justify-center">

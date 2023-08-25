@@ -32,52 +32,23 @@ export const Project = ({
   techTools,
   image,
 }: Props) => {
-  const techs = [
-    {
-      techName: "AWS",
-      logoLocation: "/cloud/aws.svg",
-    },
-    {
-      techName: "AWS",
-      logoLocation: "/cloud/aws.svg",
-    },
-    {
-      techName: "AWS",
-      logoLocation: "/cloud/aws.svg",
-    },
-    {
-      techName: "AWS",
-      logoLocation: "/cloud/aws.svg",
-    },
-    {
-      techName: "AWS",
-      logoLocation: "/cloud/aws.svg",
-    },
-    {
-      techName: "AWS",
-      logoLocation: "/cloud/aws.svg",
-    },
-  ];
   return (
     <div className={styles.section}>
       <div className="lg:grid lg:grid-cols-2 lg:gap-5">
         <div>
           <div id="headers" className="py-6 flex text-center justify-between ">
-            <h1 className="font-bold">{title}</h1>{" "}
-            <h1 className="font-semibold">{shortDescription}</h1>
+            <h1 className="font-bold text-sm xl:text-lg">{title}</h1>
+            <h1 className="font-semibold text-xs xl:text-lg">
+              {shortDescription}
+            </h1>
           </div>
-          <div id="description" className="text-justify py-6">
+          <div
+            id="description"
+            className="text-justify py-6 text-sm xl:text-lg "
+          >
             {description}
           </div>
-          {/* <div id="links" className="flex h-5 items-center space-x-4 text-sm">
-            <div>Blog</div>
-            <Separator orientation="vertical" />
-            <div>Docs</div>
-            <Separator orientation="vertical" />
-            <div>Source</div>
-          </div> */}
           <ProjectLinksComp links={links} />
-          {/* <div className="grid grid-cols-10 gap-3"> */}
           <div
             className={cn(
               techTools
@@ -167,21 +138,18 @@ export const ProjectInverted = ({
 
         <div>
           <div id="headers" className="py-6 flex text-center justify-between ">
-            <h1 className="font-bold">{title}</h1>{" "}
-            <h1 className="font-semibold">{shortDescription}</h1>
+            <h1 className="font-bold text-sm xl:text-lg">{title}</h1>
+            <h1 className="font-semibold text-xs xl:text-lg">
+              {shortDescription}
+            </h1>
           </div>
-          <div id="description" className="text-justify py-6">
+          <div
+            id="description"
+            className="text-justify py-6 text-sm xl:text-lg "
+          >
             {description}
           </div>
-          {/* <div id="links" className="flex h-5 items-center space-x-4 text-sm">
-            <div>Blog</div>
-            <Separator orientation="vertical" />
-            <div>Docs</div>
-            <Separator orientation="vertical" />
-            <div>Source</div>
-          </div> */}
           <ProjectLinksComp links={links} />
-          {/* <div className="grid grid-cols-10 gap-3"> */}
           <div
             className={cn(
               techTools
