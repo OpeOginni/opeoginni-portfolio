@@ -9,8 +9,27 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "OpeOginni Dev",
+  title: "Opeyemi Oginni",
   description: "Remote Software Developer",
+  icons: [
+    {
+      rel: "icon",
+      type: "image/svg",
+      sizes: "32x32",
+      url: "/favicon/logo.svg",
+    },
+    {
+      rel: "icon",
+      type: "image/svg",
+      sizes: "16x16",
+      url: "/favicon/logo.svg",
+    },
+    {
+      rel: "apple-touch-icon",
+      sizes: "180x180",
+      url: "/favicon/logo.svg",
+    },
+  ],
 };
 
 export default function RootLayout({
