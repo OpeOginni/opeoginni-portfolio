@@ -54,7 +54,11 @@ export const Project = ({
               techTools
                 ? `grid grid-cols-${
                     techTools?.length + 10 - techTools?.length
-                  } gap-3 `
+                  } gap-3
+                  lg:grid-cols-${
+                    techTools?.length + 10 - techTools?.length
+                  }
+                  `
                 : "grid"
             )}
           >
