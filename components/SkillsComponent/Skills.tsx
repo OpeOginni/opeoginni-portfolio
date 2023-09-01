@@ -66,7 +66,7 @@ export default function SkillsComponent() {
               </div>
             </div>
           </div>
-          <div>
+          <div className={styles.gridContainer}>
             <div className="pb-3 lg:pb-9">
               <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                 <AiOutlineCloud />
@@ -86,7 +86,7 @@ export default function SkillsComponent() {
               })}
             </div>
           </div>
-          <div>
+          <div className={styles.gridContainer}>
             <div className="pb-3 lg:pb-9">
               <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                 <HiOutlineDocumentText />
@@ -99,13 +99,14 @@ export default function SkillsComponent() {
                 Working on Bagging Certs...
               </div>
             ) : (
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-3 md:text-xs">
                 {myCerts.map((certs) => {
                   return (
                     <ToolsAndLanguages
                       key={certs.toolName}
                       imageLocation={certs.imageLocation}
                       toolName={certs.toolName}
+                      link={certs.link}
                     />
                   );
                 })}

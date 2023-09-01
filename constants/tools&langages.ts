@@ -1,6 +1,7 @@
 export interface Tools {
     imageLocation: string;
     toolName: string;
+    link?: string | undefined;
 }
 
 export interface Languages {
@@ -94,5 +95,15 @@ export const myCloud: Tools[] = [
 ]
 
 export const myCerts: Tools[] = [
+    {
+        imageLocation: "/certs/aws-certified-cloud-practitioner.png",
+        toolName: "Cloud Practitioner",
+        link: "https://www.credly.com/badges/96f201e3-7e27-44c8-8411-0254e632e695/public_url"
+    },
+    {
+        imageLocation: "/certs/aws-cloud-project-bootcamp.svg",
+        toolName: "Cloud Project Bootcamp (Red Squad)",
+        link: "https://app.exampro.co/student/achievements/validate/certificate/qegVh4xSQIeABWes-kIkmQf19f"
 
+    }
 ]
