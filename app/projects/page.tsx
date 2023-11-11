@@ -3,6 +3,7 @@ import {
   ProjectInverted,
 } from "@/components/ProjectsComponent/Project";
 import { myProjects } from "@/constants/projects";
+import { Fragment } from "react";
 
 const ProjectsPage = () => {
   return (
@@ -13,7 +14,7 @@ const ProjectsPage = () => {
 
       {myProjects.map((myProject, index) => {
         return (
-          <>
+          <Fragment key={myProject.title}>
             {index % 2 === 1 ? (
               <ProjectInverted
                 key={myProject.title}
@@ -37,7 +38,7 @@ const ProjectsPage = () => {
                 image={myProject.image}
               />
             )}
-          </>
+          </Fragment>
         );
       })}
     </div>

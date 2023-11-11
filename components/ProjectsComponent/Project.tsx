@@ -8,6 +8,7 @@ import { Tools, Languages } from "@/constants/tools&langages";
 import { ProjectLink } from "@/constants/projects";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { Fragment } from "react";
 
 interface Props {
   title: string;
@@ -174,7 +175,7 @@ const ProjectLinksComp = ({ links }: LinksProps) => {
     >
       {links.map((link, index) => {
         return (
-          <>
+          <Fragment key={link.lintTitle}>
             {index === links.length - 1 ? (
               <div key={link.lintTitle}>
                 <Link href={link.link} target="blank">
@@ -182,7 +183,7 @@ const ProjectLinksComp = ({ links }: LinksProps) => {
                 </Link>
               </div>
             ) : (
-              <>
+              <Fragment key={link.lintTitle}>
                 {" "}
                 <div key={link.lintTitle}>
                   <Link href={link.link} target="blank">
@@ -190,9 +191,9 @@ const ProjectLinksComp = ({ links }: LinksProps) => {
                   </Link>
                 </div>
                 <Separator orientation="vertical" />{" "}
-              </>
+              </Fragment>
             )}
-          </>
+          </Fragment>
         );
       })}
     </div>
