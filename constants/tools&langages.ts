@@ -37,6 +37,10 @@ export const myTools: Tools[] = [
         toolName: "Drizzle ORM",
     },
     {
+        imageLocation: "/tools/prisma.svg",
+        toolName: "Prisma ORM",
+    },
+    {
         imageLocation: "/tools/mongodb.svg",
         toolName: "MongoDB"
 
@@ -46,10 +50,10 @@ export const myTools: Tools[] = [
         toolName: "PostgreSQL"
 
     },
-    {
-        imageLocation: "/tools/mssql.svg",
-        toolName: "MSQL Sever",
-    },
+    // {
+    //     imageLocation: "/tools/mssql.svg",
+    //     toolName: "MSQL Sever",
+    // },
     {
         imageLocation: "/tools/chainlink.svg",
         toolName: "Chainlink"
@@ -84,6 +88,10 @@ export const myLanguages: Languages[] = [
     {
         imageLocation: "/languages/golang.svg",
         toolName: "Golang",
+    },
+    {
+        imageLocation: "/languages/cadence.svg",
+        toolName: "Cadence",
     },
 ];
 

@@ -78,5 +78,34 @@ export const myProjects: Projects[] = [
         ],
         image: "/projects/cardify-4.png"
 
+    },
+
+    {
+        title: "Luggage Booking App",
+        completedTime: new Date("2023-11-01"),
+        shortDescription: "Fullstack | Travel",
+        description: "This site allows users to book their luggages or packages to be loaded into different transports, and they can retrive them at the destination point.",
+        link: [
+            {
+                lintTitle: "GitHub",
+                link: "https://github.com/OpeOginni/luggage-booking"
+            },
+            {
+                lintTitle: "Live Site",
+                link: "https://luggage-booking-production.up.railway.app/"
+            },
+            {
+                lintTitle: "Nest API Documentation",
+                link: "https://documenter.getpostman.com/view/24109379/2s9YR3cvQp"
+            }
+        ],
+        techTools: [
+            myTools[0], myTools[4],
+            myTools[6],
+            myTools[2], myLanguages[2],
+            myTools[8]
+        ],
+        image: "/projects/luggage-booking.png"
+
     }
 ]
