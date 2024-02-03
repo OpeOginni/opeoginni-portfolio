@@ -18,13 +18,13 @@ export const myWorkQualifications: Qualifications[] = [
     {
         qualification: "Junior Backend Developer",
         institution: "Centiiv",
-        period: "2022 - present",
+        period: "2022 - 2023",
         description: ""
     },
     {
         qualification: "Backend Developer",
         institution: "Eweko",
-        period: "2023 - present",
+        period: "2023 - 2023",
         description: ""
     }
 ]

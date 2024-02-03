@@ -1,5 +1,6 @@
 import Header from "@/components/Header/Header";
 import ContactComponent from "@/components/ContactComponent/Contact";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 import type { Metadata } from "next";
@@ -47,6 +48,7 @@ export default function RootLayout({
 
           <ContactComponent />
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
