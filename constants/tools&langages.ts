@@ -50,10 +50,6 @@ export const myTools: Tools[] = [
         toolName: "PostgreSQL"
 
     },
-    // {
-    //     imageLocation: "/tools/mssql.svg",
-    //     toolName: "MSQL Sever",
-    // },
     {
         imageLocation: "/tools/chainlink.svg",
         toolName: "Chainlink"
@@ -62,6 +58,7 @@ export const myTools: Tools[] = [
         imageLocation: "/tools/hardhat.svg",
         toolName: "Hardhat",
     },
+
 ];
 
 export const myLanguages: Languages[] = [
@@ -99,6 +96,13 @@ export const myCloud: Tools[] = [
     {
         imageLocation: "/cloud/aws.svg",
         toolName: "AWS"
+    }
+]
+
+export const myChains: Tools[] = [
+    {
+        imageLocation: "/chains/tezos.svg",
+        toolName: "Tezos",
     }
 ]
 

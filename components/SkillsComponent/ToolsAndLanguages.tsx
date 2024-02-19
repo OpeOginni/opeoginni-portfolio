@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import styles from "./Skills.module.css";
+import { cn } from "@/lib/utils";
 
 interface Props {
   imageLocation: string;
   toolName: string;
   link?: string;
 }
-// TODO: Work on Skills and Cerification Component
 export default function ToolsAndLanguages({
   imageLocation,
   toolName,
@@ -20,7 +20,7 @@ export default function ToolsAndLanguages({
           <Link href={link} target="blank">
             <div className="py-7">
               <img
-                className={styles.toolImage}
+                className={cn(styles.toolImage, "hover:animate-bounce")}
                 src={imageLocation}
                 alt={toolName}
               />
@@ -32,7 +32,7 @@ export default function ToolsAndLanguages({
         <>
           <div className="py-7">
             <img
-              className={styles.toolImage}
+              className={cn(styles.toolImage, "hover:animate-bounce")}
               src={imageLocation}
               alt={toolName}
             />

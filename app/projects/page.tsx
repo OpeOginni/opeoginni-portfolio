@@ -9,7 +9,7 @@ const ProjectsPage = () => {
   return (
     <div>
       <div className="text-center text-2xl md:text-5xl py-9 font-bold">
-        My Projects
+        MY PROJECTS
       </div>
 
       {myProjects.map((myProject, index) => {
