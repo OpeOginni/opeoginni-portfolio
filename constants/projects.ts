@@ -98,7 +98,7 @@ export const myProjects: Projects[] = [
             },
             {
                 lintTitle: "Live Site",
-                link: "https://luggage-booking-production.up.railway.app/",
+                link: "https://luggage-booking.vercel.app/",
             },
             {
                 lintTitle: "Nest API Documentation",
