@@ -1,5 +1,4 @@
 import styles from "./Intro.module.css";
-import { Button } from "@chakra-ui/button";
 
 export default function IntroComponent() {
   return (
@@ -22,9 +21,9 @@ export default function IntroComponent() {
         </div>
         <div className="py-12">
           <a href="#contact">
-            <Button variant="outline" colorScheme="purple">
+            <button className="py-2 px-4 border rounded-lg border-[#5E17EB] text-[#5E17EB]">
               Say Hey To Me
-            </Button>
+            </button>
           </a>
         </div>
       </div>
