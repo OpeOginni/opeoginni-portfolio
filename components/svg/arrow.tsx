@@ -1,0 +1,3 @@
+ const ArrowSVG = () => <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 800"><g strokeWidth="29" stroke="#5e17eb" fill="none" strokeLinecap="square" transform="matrix(0.01745240643728313,-0.9998476951563913,0.9998476951563913,0.01745240643728313,-37.920040637469754,749.9581154876432)"><path d="M170.30618476867676 151.53179931640625Q75.30618476867676 757.5317993164062 643.3061847686768 624.5317993164062 " markerEnd="url(#SvgjsMarker4533)"></path></g><defs><marker markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" viewBox="0 0 5 5" orient="auto" id="SvgjsMarker4533"><polygon points="0,5 1.6666666666666667,2.5 0,0 5,2.5" fill="#5e17eb"></polygon></marker></defs></svg>;
+
+export default ArrowSVG;

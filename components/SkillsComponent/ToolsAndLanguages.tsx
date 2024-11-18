@@ -20,7 +20,7 @@ export default function ToolsAndLanguages({
           <Link href={link} target="blank">
             <div className="py-7">
               <img
-                className={cn(styles.toolImage, "hover:animate-bounce")}
+                className={cn(styles.toolImage, "")}
                 src={imageLocation}
                 alt={toolName}
               />
@@ -32,7 +32,7 @@ export default function ToolsAndLanguages({
         <>
           <div className="py-7">
             <img
-              className={cn(styles.toolImage, "hover:animate-bounce")}
+              className={cn(styles.toolImage, "")}
               src={imageLocation}
               alt={toolName}
             />

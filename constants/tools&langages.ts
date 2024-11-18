@@ -33,12 +33,8 @@ export const myTools: Tools[] = [
 
     },
     {
-        imageLocation: "/tools/drizzle.png",
+        imageLocation: "/tools/drizzle-orm.svg",
         toolName: "Drizzle ORM",
-    },
-    {
-        imageLocation: "/tools/prisma.svg",
-        toolName: "Prisma ORM",
     },
     {
         imageLocation: "/tools/mongodb.svg",
@@ -51,12 +47,8 @@ export const myTools: Tools[] = [
 
     },
     {
-        imageLocation: "/tools/chainlink.svg",
-        toolName: "Chainlink"
-    },
-    {
-        imageLocation: "/tools/hardhat.svg",
-        toolName: "Hardhat",
+        imageLocation: "/tools/spring.svg",
+        toolName: "Spring Boot"
     },
 
 ];
@@ -85,6 +77,10 @@ export const myLanguages: Languages[] = [
     {
         imageLocation: "/languages/golang.svg",
         toolName: "Golang",
+    },
+    {
+        imageLocation: "/languages/java.svg",
+        toolName: "Java",
     },
     {
         imageLocation: "/languages/cadence.svg",

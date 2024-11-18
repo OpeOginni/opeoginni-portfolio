@@ -9,7 +9,7 @@ export const myEducationQualificaions: Qualifications[] = [
     {
         qualification: "Bachelor of Science in Computer Science",
         institution: "IU Of Applied Sciences - Bad Honnef, Germany",
-        period: "2022 - present",
+        period: "2022 - 2024",
         description: ""
     }
 ]
@@ -22,9 +22,9 @@ export const myWorkQualifications: Qualifications[] = [
         description: ""
     },
     {
-        qualification: "Backend Developer",
-        institution: "Eweko",
-        period: "2023 - 2023",
+        qualification: "Backend Engineer",
+        institution: "Rank Capital",
+        period: "April 2024 - Sept 2024",
         description: ""
     }
 ]

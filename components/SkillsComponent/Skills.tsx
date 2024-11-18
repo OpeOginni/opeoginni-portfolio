@@ -22,14 +22,14 @@ export default function SkillsComponent() {
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-3">
           <div>
             <div className={styles.gridContainer}>
-              <div className="pb-3 lg:pb-9">
+              <div className="pb-2 lg:pb-5">
                 <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                   <HiOutlineCode />
 
                   <span className="px-4">Languages</span>
                 </h1>
               </div>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-3 gap-3 pb-3">
                 {myLanguages.map((language) => {
                   return (
                     <ToolsAndLanguages
@@ -45,14 +45,14 @@ export default function SkillsComponent() {
           <div>
             <div>
               <div className={styles.gridContainer}>
-                <div className="pb-3 lg:pb-9">
+                <div className="pb-2 lg:pb-5">
                   <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                     <LiaToolsSolid />
 
-                    <span className="px-4">Tools</span>
+                    <span className="px-4">Frameworks / Tools</span>
                   </h1>
                 </div>
-                <div className="grid grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-3 pb-3">
                   {myTools.map((tool) => {
                     return (
                       <ToolsAndLanguages
@@ -67,7 +67,7 @@ export default function SkillsComponent() {
             </div>
           </div>
           <div className={styles.gridContainer}>
-            <div className="pb-3 lg:pb-9">
+            <div className="pb-2 lg:pb-5">
               <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                 <AiOutlineCloud />
 
@@ -87,7 +87,7 @@ export default function SkillsComponent() {
             </div>
           </div>
           <div className={styles.gridContainer}>
-            <div className="pb-3 lg:pb-9">
+            <div className="pb-2 lg:pb-5">
               <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                 <HiOutlineDocumentText />
 
