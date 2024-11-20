@@ -4,13 +4,18 @@ import { AiOutlineCloud } from "react-icons/ai";
 import styles from "./Skills.module.css";
 import ToolsAndLanguages from "./ToolsAndLanguages";
 import {
-  myLanguages,
-  myTools,
-  myCloud,
-  myCerts,
+  getMyLanguages,
+  getMyTools,
+  getMyCloud,
+  getMyCerts,
 } from "../../constants/tools&langages";
 
 export default function SkillsComponent() {
+  const myLanguages = getMyLanguages();
+  const myTools = getMyTools();
+  const myCloud = getMyCloud();
+  const myCerts = getMyCerts();
+
   return (
     <section id="skills&certs" className={styles.section}>
       <div>

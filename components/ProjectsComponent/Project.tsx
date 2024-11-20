@@ -4,7 +4,16 @@ import { Separator } from "@/components/ui/separator";
 
 import styles from "@/components/ProjectsComponent/Project.module.css";
 import TechUsed from "./TechUsed";
-import { Tools, Languages } from "@/constants/tools&langages";
+import { 
+    ToolName, 
+    LanguageName, 
+    CloudName, 
+    ChainName,
+    getTool,
+    getLanguage,
+    getCloud,
+    getChain
+} from "@/constants/tools&langages";
 import { ProjectLink } from "@/constants/projects";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -16,7 +25,7 @@ interface Props {
   shortDescription: string;
   description: string;
   links: ProjectLink[];
-  techTools?: Tools[];
+  tech: (ToolName | LanguageName | CloudName | ChainName)[];
   image?: string;
 }
 
@@ -24,13 +33,29 @@ interface LinksProps {
   links: ProjectLink[];
 }
 
+const getTechDetails = (techName: ToolName | LanguageName | CloudName | ChainName) => {
+    if (Object.values(ToolName).includes(techName as ToolName)) {
+        return getTool(techName as ToolName);
+    }
+    if (Object.values(LanguageName).includes(techName as LanguageName)) {
+        return getLanguage(techName as LanguageName);
+    }
+    if (Object.values(CloudName).includes(techName as CloudName)) {
+        return getCloud(techName as CloudName);
+    }
+    if (Object.values(ChainName).includes(techName as ChainName)) {
+        return getChain(techName as ChainName);
+    }
+    throw new Error(`Unknown tech: ${techName}`);
+};
+
 export const Project = ({
   title,
   completedTime,
   shortDescription,
   description,
   links,
-  techTools,
+  tech,
   image,
 }: Props) => {
   return (
@@ -51,14 +76,15 @@ export const Project = ({
           </div>
           <ProjectLinksComp links={links} />
           <div className={styles.ProjectTech}>
-            {techTools?.map((tech) => {
-              return (
-                <TechUsed
-                  key={tech.toolName}
-                  logoLocation={tech.imageLocation}
-                  techName={tech.toolName}
-                />
-              );
+            {tech.map((techName) => {
+                const techDetails = getTechDetails(techName);
+                return (
+                    <TechUsed
+                        key={techDetails.toolName}
+                        logoLocation={techDetails.imageLocation}
+                        techName={techDetails.toolName}
+                    />
+                );
             })}
           </div>
 
@@ -101,7 +127,7 @@ export const ProjectInverted = ({
   shortDescription,
   description,
   links,
-  techTools,
+  tech,
   image,
 }: Props) => {
   return (
@@ -144,14 +170,15 @@ export const ProjectInverted = ({
           </div>
           <ProjectLinksComp links={links} />
           <div className={styles.ProjectTech}>
-            {techTools?.map((tech) => {
-              return (
-                <TechUsed
-                  key={tech.toolName}
-                  logoLocation={tech.imageLocation}
-                  techName={tech.toolName}
-                />
-              );
+            {tech.map((techName) => {
+                const techDetails = getTechDetails(techName);
+                return (
+                    <TechUsed
+                        key={techDetails.toolName}
+                        logoLocation={techDetails.imageLocation}
+                        techName={techDetails.toolName}
+                    />
+                );
             })}
           </div>
 
@@ -175,19 +202,19 @@ const ProjectLinksComp = ({ links }: LinksProps) => {
     >
       {links.map((link, index) => {
         return (
-          <Fragment key={link.lintTitle}>
+          <Fragment key={link.linkTitle}>
             {index === links.length - 1 ? (
-              <div key={link.lintTitle}>
+              <div key={link.linkTitle}>
                 <Link href={link.link} target="blank">
-                  {link.lintTitle}
+                  {link.linkTitle}
                 </Link>
               </div>
             ) : (
-              <Fragment key={link.lintTitle}>
+              <Fragment key={link.linkTitle}>
                 {" "}
-                <div key={link.lintTitle}>
+                <div key={link.linkTitle}>
                   <Link href={link.link} target="blank">
-                    {link.lintTitle}
+                    {link.linkTitle}
                   </Link>
                 </div>
                 <Separator orientation="vertical" />{" "}

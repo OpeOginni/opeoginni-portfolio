@@ -11,13 +11,15 @@ export default function IntroComponent() {
           </div>
           <h1 className="text-3xl lg:text-6xl pb-4 font-bold">
             Opeyemi <br />
-            Software Developer
+            <span className=" text-2xl">a{" "}</span>Software Developer
           </h1>
           <p className="text-s pb-2">
-            A versatile developer with expertise in backend
-            development, frontend integration, and blockchain solutions. My
-            skills include working with cloud services to deliver efficient
-            software solutions.{" "}
+            This guy brags about being an all round software developer with a
+            passion for building software solutions with any tools available
+            for the job 💪
+            <br />
+            He is still working on improving his skills on building more
+            scalable and efficient software 🚀
           </p>
         </div>
         <div className="py-12">

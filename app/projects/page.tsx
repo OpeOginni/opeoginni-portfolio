@@ -23,7 +23,7 @@ const ProjectsPage = () => {
                 shortDescription={myProject.shortDescription}
                 description={myProject.description}
                 links={myProject.link}
-                techTools={myProject.techTools}
+                tech={myProject.tech}
                 image={myProject.image}
               />
             ) : (
@@ -34,7 +34,7 @@ const ProjectsPage = () => {
                 shortDescription={myProject.shortDescription}
                 description={myProject.description}
                 links={myProject.link}
-                techTools={myProject.techTools}
+                tech={myProject.tech}
                 image={myProject.image}
               />
             )}

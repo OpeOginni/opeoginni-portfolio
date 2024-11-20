@@ -23,7 +23,7 @@ export const myWorkQualifications: Qualifications[] = [
     },
     {
         qualification: "Backend Engineer",
-        institution: "Rank Capital",
+        institution: "Yala (Rank Capital)",
         period: "April 2024 - Sept 2024",
         description: ""
     }
