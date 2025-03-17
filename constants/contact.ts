@@ -19,5 +19,10 @@ export const myContactDetails: Contact[] = [
         name: "brightoginni123@gmail.com",
         link: "mailto::brightoginni123@gmail.com",
         medium: "email"
+    },
+    {
+        name: "BrightOginni",
+        link: "https://x.com/BrightOginni",
+        medium: "x"
     }
 ]
