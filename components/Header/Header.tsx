@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./Header.module.css";
 import ArrowSVG from "../svg/arrow";
 
 interface NavLinks {
@@ -24,7 +23,7 @@ const MobileHeaderNavLinks: NavLinks[] = [
 
 export default async function Header() {
   return (
-    <div className={`${styles.largeContainer} sticky top-0 bg-white/80 backdrop-blur-sm z-50`}>
+    <div className="p-[30px] flex flex-row justify-between text-center items-center overflow-hidden sticky top-0 bg-white/80 backdrop-blur-sm z-50 border-b-2 border-gray-200">
       <div>
         <Link
           href={"/"}
@@ -38,7 +37,7 @@ export default async function Header() {
           return (
             <div
               key={MobileHeaderNavLink.key}
-              className={`${styles.headerNavLinks} text-lg`}
+              className="text-lg"
             >
               <Link href={MobileHeaderNavLink.link}>
                 {MobileHeaderNavLink.name}
@@ -50,7 +49,7 @@ export default async function Header() {
       <div className="hidden md:grid grid-cols-5 gap-4 items-center">
         {HeaderNavLinks.map((HeaderNavLink) => {
           return (
-            <div key={HeaderNavLink.key} className={`${styles.headerNavLinks} text-lg`}>
+            <div key={HeaderNavLink.key} className="text-lg">
               <Link 
                 href={HeaderNavLink.link}
                 className={`${

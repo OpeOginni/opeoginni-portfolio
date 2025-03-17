@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "./contact.module.css";
 import { FiGithub } from "react-icons/fi";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { HiOutlineMail } from "react-icons/hi";
@@ -14,7 +13,7 @@ interface Props {
 export default function Contacts({ name, link, medium }: Props) {
   if (medium === "github") {
     return (
-      <div className={styles.contact}>
+      <div className="flex justify-center items-center text-xl leading-7">
         <span>
           <Link href={link}>
             <FiGithub />
@@ -24,7 +23,7 @@ export default function Contacts({ name, link, medium }: Props) {
     );
   } else if (medium === "linkedin") {
     return (
-      <div className={styles.contact}>
+      <div className="flex justify-center items-center text-xl leading-7">
         <span>
           <Link href={link}>
             <TbBrandLinkedin />
@@ -34,7 +33,7 @@ export default function Contacts({ name, link, medium }: Props) {
     );
   } else if (medium === "email") {
     return (
-      <div className={styles.contact}>
+      <div className="flex justify-center items-center text-xl leading-7">
         <span>
           <Link href={link}>
             <HiOutlineMail />

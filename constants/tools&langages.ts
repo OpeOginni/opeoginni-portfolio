@@ -16,7 +16,9 @@ export enum ToolName {
   SOCKET_IO = "socket_io",
   FLASK = "flask",
   NPM = "npm",
-  CLOUDFORMATION = "cloudformation"
+  CLOUDFORMATION = "cloudformation",
+  AUTH_JS = "auth_js",
+  BUN = "bun"
 }
 
 export enum LanguageName {
@@ -38,7 +40,8 @@ export enum CloudName {
 }
 
 export enum ChainName {
-  TEZOS = "tezos"
+  TEZOS = "tezos",
+  FLOW = "flow"
 }
 
 export interface Tool {
@@ -133,7 +136,9 @@ function getDisplayName(name: string): string {
     ruby: "Ruby",
     bash: "Bash",
     aws: "AWS",
-    tezos: "Tezos"
+    tezos: "Tezos",
+    flow: "Flow",
+    bun: "Bun"
   };
 
   return displayNames[name] || name;
@@ -148,6 +153,7 @@ export const getMyTools = (): Tool[] => [
   getTool(ToolName.MONGODB),
   getTool(ToolName.POSTGRESQL),
   getTool(ToolName.DOCKER),
+  getTool(ToolName.BUN)
 ];
 
 export const getMyLanguages = (): Language[] => [
@@ -161,6 +167,7 @@ export const getMyLanguages = (): Language[] => [
 
 export const getMyCloud = (): Cloud[] => [
   getCloud(CloudName.AWS),
+  getCloud(CloudName.RAILWAY),
 ];
 
 export const getMyCerts = (): Cert[] => [

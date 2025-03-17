@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import styles from "./Project.module.css";
 
 interface Props {
   logoLocation: string;
@@ -8,8 +7,8 @@ interface Props {
 // TODO: Work on Skills and Cerification Component
 export default function TechUsed({ logoLocation, techName }: Props) {
   return (
-    <div className="py-7 ">
-      <img className={styles.techImage} src={logoLocation} alt={techName} />
+    <div className="py-7">
+      <img className="w-[30px] h-[30px]" src={logoLocation} alt={techName} />
     </div>
   );
 }

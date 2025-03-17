@@ -2,11 +2,7 @@ import {
     ToolName,
     LanguageName,
     CloudName,
-    ChainName,
-    getTool,
-    getLanguage,
-    getCloud,
-    getChain,
+    ChainName
 } from "./tools&langages";
 
 export interface Projects {
@@ -24,7 +20,32 @@ export interface ProjectLink {
     link: string;
 }
 
-export const myProjects: Projects[] = [     {
+export const myProjects: Projects[] = [{
+    title: "StarBridge",
+    completedTime: new Date("2025-03-17"),
+    shortDescription: "SaaS | Currency Swap | Telegram Bot",
+    description: "A Telegram Bot that allows users to swap their Telegram Stars (Platform Currency) to Stable Coins like USDT & USDC on the TON, BSC and opBNB Chains. Currently with 2k+ users, $8k in swap volume in 2 months.",
+    link: [
+        {
+            linkTitle: "Bot URL",
+            link: "https://t.me/StarBridgeTGBot",
+        },
+        {
+            linkTitle: "Demo Video",
+            link: "https://youtu.be/HukW4R4KwkE"
+        }
+        
+    ],
+    tech: [
+        LanguageName.TYPESCRIPT,
+        ToolName.DOCKER,
+        ToolName.BUN,
+        ToolName.MONGODB,
+        CloudName.RAILWAY  ,
+        LanguageName.SOLIDITY
+    ],
+    image: "/projects/starbridge.png"
+},{
     title: "Solana Trade Connect",
     completedTime: new Date("2024-04-08"),
     shortDescription: "Dev Tool | Solana | Microservices",
@@ -93,6 +114,32 @@ export const myProjects: Projects[] = [     {
             LanguageName.BASH,
         ],
         image: "/projects/cruddur.png",
+    },
+    {
+        title: "Tic Tac Toe",
+        completedTime: new Date("2025-03-14"),
+        shortDescription: "Game | AI Companion",
+        description: "A Simple Tic Tac Toe Game, made use of the Cursor Editor and AI to spearhead code generation, as a test with the so called 'Vibe Coding'.",
+        link: [
+            {
+                linkTitle: "GitHub",
+                link: "https://github.com/OpeOginni/tic-tac-toe",
+            },
+            {
+                linkTitle: "Live Site",
+                link: "https://tic-tac-toe-seven-tawny.vercel.app/",
+            },
+        ],
+        tech: [
+            LanguageName.TYPESCRIPT,
+            ToolName.NEXTJS,
+            ToolName.TAILWINDCSS,
+            ToolName.SOCKET_IO,
+            ToolName.DOCKER,
+            CloudName.RAILWAY,
+            ToolName.BUN
+        ],
+        image: "/projects/tic-tac-toe.png",
     },
 
     {
@@ -167,5 +214,40 @@ export const myProjects: Projects[] = [     {
             ChainName.TEZOS,
         ],
         image: "/projects/create-tez-dapp.png",
+    },
+    {
+        title: "Flow Sign",
+        completedTime: new Date("2023-10-03"),
+        shortDescription: "SaaS | Blockchain | Social Auth",
+        description:
+        "A blockchain-powered document signing platform that revolutionizes traditional e-signatures by anchoring them on the Flow blockchain. Features a seamless social authentication system where users can securely access their blockchain wallets through Google Sign-In, with wallet creation and management handled automatically in the backend. This creates a frictionless Web3 experience while maintaining the security and immutability of blockchain-based signatures.",
+        link: [
+            {
+                linkTitle: "GitHub",
+                link: "https://github.com/OpeOginni/flow-sign",
+            },
+            {
+                linkTitle: "Readme",
+                link: "https://github.com/OpeOginni/flow-sign/blob/main/README.md",
+            },
+            {
+                linkTitle: "Demo Video",
+                link: "https://www.loom.com/share/043ea49491fe41a189a76ec06ca3b640?sid=1e4d960a-ae48-4d9e-af35-6dced89274ab"
+            },
+            {
+                linkTitle: "Site",
+                link: "https://flow-sign.vercel.app/",
+            },
+        ],
+        tech: [
+            ToolName.NEXTJS,
+            ToolName.TAILWINDCSS,
+            ToolName.POSTGRESQL,
+            ToolName.DRIZZLE,
+            LanguageName.CADENCE,
+            LanguageName.TYPESCRIPT,
+            ToolName.AUTH_JS
+        ],
+        image: "/projects/flow-sign.png",
     },
 ];

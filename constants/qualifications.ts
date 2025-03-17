@@ -26,7 +26,14 @@ export const myWorkQualifications: Qualifications[] = [
         institution: "Yala (Rank Capital)",
         period: "April 2024 - Sept 2024",
         description: ""
+    },
+    {
+        qualification: "Full Stack / Blockchain Developer",
+        institution: "Kingdomly",
+        period: "Sept 2024 - Present",
+        description: ""
     }
+
 ]
 
 export const myOtherQualifications: Qualifications[] = [

@@ -1,6 +1,5 @@
 import { LiaTrophySolid } from "react-icons/lia";
 import { MdOutlineSchool, MdWorkOutline } from "react-icons/md";
-import styles from "./Qualification.module.css";
 import Qualifications from "./QualificationObject";
 import {
   myEducationQualificaions,
@@ -11,18 +10,17 @@ import {
 // TODO: Qualifications Component
 export default function QualificationsComponent() {
   return (
-    <section id="qualifications" className={styles.section}>
+    <section id="qualifications" className="max-w-[75%] mx-auto border-b border-[hsl(207,4%,16%)] py-5 pb-14">
       <div>
         <h1 className="text-3xl font-bold py-7 text-center">Qualifications</h1>
       </div>
       <div className="h-max">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-3">
           <div>
-            <div className={styles.gridContainer}>
+            <div className="w-[60%] sm:max-w-[95%]">
               <div className="pb-9">
                 <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                   <MdOutlineSchool />
-
                   <span className="px-4">Education</span>
                 </h1>
               </div>
@@ -45,11 +43,10 @@ export default function QualificationsComponent() {
           </div>
           <div>
             <div>
-              <div className={styles.gridContainer}>
+              <div className="w-[60%] sm:max-w-[95%]">
                 <div className="pb-9">
                   <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
                     <MdWorkOutline />
-
                     <span className="px-4">Experience</span>
                   </h1>
                 </div>
@@ -77,7 +74,6 @@ export default function QualificationsComponent() {
           <div className="py-9">
             <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
               <LiaTrophySolid />
-
               <span className="px-4">Accomplishments</span>
             </h1>
           </div>

@@ -1,13 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import styles from "./Skills.module.css";
-import { cn } from "@/lib/utils";
 
 interface Props {
   imageLocation: string;
   toolName: string;
   link?: string;
 }
+
 export default function ToolsAndLanguages({
   imageLocation,
   toolName,
@@ -20,7 +19,7 @@ export default function ToolsAndLanguages({
           <Link href={link} target="blank">
             <div className="py-7">
               <img
-                className={cn(styles.toolImage, "")}
+                className="w-[40px] h-[40px] md:w-[75px] md:h-[75px] lg:w-[75px] lg:h-[75px] mx-auto" 
                 src={imageLocation}
                 alt={toolName}
               />
@@ -32,8 +31,8 @@ export default function ToolsAndLanguages({
         <>
           <div className="py-7">
             <img
-              className={cn(styles.toolImage, "")}
-              src={imageLocation}
+                className="w-[40px] h-[40px] md:w-[75px] md:h-[75px] lg:w-[75px] lg:h-[75px] mx-auto" 
+                src={imageLocation}
               alt={toolName}
             />
           </div>
