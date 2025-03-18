@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ArrowSVG from "../svg/arrow";
+import { cn } from "@/lib/utils";
 
 interface NavLinks {
   key: number;
@@ -58,18 +59,16 @@ export default async function Header() {
                     : ""
                 }`}
               >
-                {HeaderNavLink.name === "Projects" && (
-                  <span className="absolute flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent blur-2xl animate-[pulse_2s_ease-in-out_infinite] hover:animate-[pulse_1s_ease-in-out_infinite]">
+                {HeaderNavLink.name === "Projects" ? (
+                  <span className="absolute flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] animate-[textAnimation_5s_ease_infinite] hover:blur-2xl">
+                    {HeaderNavLink.name}
+                  </span>
+                ) : (
+                  <span>
                     {HeaderNavLink.name}
                   </span>
                 )}
-                <span className={`${
-                  HeaderNavLink.name === "Projects"
-                    ? "relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-                    : ""
-                }`}>
-                  {HeaderNavLink.name}
-                </span>
+
               </Link>
             </div>
           );
