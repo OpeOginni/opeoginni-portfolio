@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { MoveRightIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function IntroComponent() {
   return (
@@ -13,20 +15,18 @@ export default function IntroComponent() {
             <span className="text-2xl">a{" "}</span>Software Developer
           </h1>
           <p className="text-s pb-2">
-            This guy brags about being an all round software developer with a
+            This guy is an all round software developer with a
             passion for building software solutions with any tools available
             for the job 💪
-            <br />
-            He is still working on improving his skills on building more
-            scalable and efficient software 🚀
           </p>
         </div>
         <div className="py-12">
-          <a href="#contact">
-            <button className="py-2 px-4 border rounded-lg border-[#5E17EB] text-[#5E17EB] hover:bg-[#5E17EB] hover:text-white transition-colors">
-              Say Hey To Me
-            </button>
-          </a>
+            <Link 
+              href={"/projects"} 
+              className="inline-flex items-center gap-2 py-2 px-4 border rounded-lg border-[#5E17EB] text-[#5E17EB] hover:bg-[#5E17EB] hover:text-white transition-all duration-300"
+            >
+              My Projects <MoveRightIcon className="w-4 h-4" />
+            </Link>
         </div>
       </div>
     </section>
