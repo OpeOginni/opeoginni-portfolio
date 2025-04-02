@@ -11,6 +11,12 @@ export const myEducationQualificaions: Qualifications[] = [
         institution: "IU Of Applied Sciences - Bad Honnef, Germany",
         period: "2022 - 2024",
         description: ""
+    },
+    {
+        qualification: "Masters of Science in Global Software Development",
+        institution: "Fulda University of Applied Sciences - Fulda, Germany",
+        period: "2025 - 2027",
+        description: ""
     }
 ]
 
@@ -28,7 +34,7 @@ export const myWorkQualifications: Qualifications[] = [
         description: ""
     },
     {
-        qualification: "Full Stack / Blockchain Developer",
+        qualification: "Full Stack / Blockchain Developer (Contractor)",
         institution: "Kingdomly",
         period: "Sept 2024 - Present",
         description: ""
