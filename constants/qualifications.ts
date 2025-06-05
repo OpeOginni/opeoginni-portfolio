@@ -7,13 +7,13 @@ export interface Qualifications {
 
 export const myEducationQualificaions: Qualifications[] = [
     {
-        qualification: "Bachelor of Science in Computer Science",
+        qualification: "BSc in Computer Science",
         institution: "IU Of Applied Sciences - Bad Honnef, Germany",
         period: "2022 - 2024",
         description: ""
     },
     {
-        qualification: "Masters of Science in Global Software Development",
+        qualification: "MSc in Global Software Development",
         institution: "Fulda University of Applied Sciences - Fulda, Germany",
         period: "2025 - 2027",
         description: ""
@@ -36,17 +36,7 @@ export const myWorkQualifications: Qualifications[] = [
     {
         qualification: "Full Stack / Blockchain Developer (Contractor)",
         institution: "Kingdomly",
-        period: "Sept 2024 - Present",
-        description: ""
-    }
-
-]
-
-export const myOtherQualifications: Qualifications[] = [
-    {
-        qualification: "Runner Up in Chainlink Spring 2023 Hackathon",
-        institution: "Chainlink",
-        period: "2023",
+        period: "Sept 2024 - April 2025",
         description: ""
     }
 ]

@@ -10,7 +10,7 @@ interface NavLinks {
 
 const HeaderNavLinks: NavLinks[] = [
   { key: 0, name: "Home", link: "/" },
-  { key: 1, name: "Projects", link: "/projects" },
+  { key: 1, name: "Projects", link: "/#projects" },
   { key: 2, name: "Skills/Certs", link: "/#skills&certs" },
   { key: 3, name: "Qualifications", link: "/#qualifications" },
   { key: 4, name: "Contact", link: "/#contact" },
@@ -18,7 +18,7 @@ const HeaderNavLinks: NavLinks[] = [
 
 const MobileHeaderNavLinks: NavLinks[] = [
   { key: 0, name: "Home", link: "/" },
-  { key: 1, name: "Projects", link: "/projects" },
+  { key: 1, name: "Projects", link: "/#projects" },
   { key: 3, name: "Contact", link: "/#contact" },
 ];
 
@@ -59,16 +59,18 @@ export default async function Header() {
                     : ""
                 }`}
               >
-                {HeaderNavLink.name === "Projects" ? (
-                  <span className="absolute flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] animate-[textAnimation_5s_ease_infinite] hover:blur-2xl">
-                    {HeaderNavLink.name}
-                  </span>
-                ) : (
-                  <span>
+                {HeaderNavLink.name === "Projects" && (
+                  <span className="absolute flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] animate-[textAnimation_5s_ease_infinite]">
                     {HeaderNavLink.name}
                   </span>
                 )}
-
+                <span className={`${
+                  HeaderNavLink.name === "Projects"
+                    ? "relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] animate-[textAnimation_5s_ease_infinite]"
+                    : ""
+                }`}>
+                  {HeaderNavLink.name}
+                </span>
               </Link>
             </div>
           );
