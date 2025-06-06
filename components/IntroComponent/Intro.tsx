@@ -8,14 +8,14 @@ export default function IntroComponent() {
       <div className="h-max">
         <div className="w-full md:w-[60%] pb-6 md:pb-5">
           <div>
-            <h1 className="text-[#5E17EB] text-sm md:text-xs pb-3 md:pb-2">Hey I&#39;m</h1>
+            <h1 className="text-[#5E17EB] text-sm md:text-xs pb-3 md:pb-2">Hey I&apos;m</h1>
           </div>
           <h1 className="text-4xl md:text-3xl lg:text-6xl pb-4 md:pb-4 font-bold leading-tight">
             Opeyemi <br />
             <span className="text-xl md:text-2xl">a{" "}</span>Software Developer
           </h1>
           <p className="text-base md:text-s pb-4 md:pb-2 leading-relaxed">
-            I'm a versatile software developer passionate about building 
+            A versatile software developer passionate about building 
             efficient solutions using the right tools for each challenge. 
             Always eager to tackle new problems and learn emerging technologies.
           </p>

@@ -16,7 +16,7 @@ export default function ProjectsSection() {
           Featured Projects
         </h1>
         <p className="text-center text-gray-600 mb-6 md:mb-8 max-w-2xl mx-auto text-sm md:text-base">
-          Here are some of the projects I've worked on, showcasing various technologies and approaches to solving real-world problems.
+          Here are some of the projects I&apos;ve worked on, showcasing various technologies and approaches to solving real-world problems.
         </p>
       </div>
       <div className="space-y-0">
