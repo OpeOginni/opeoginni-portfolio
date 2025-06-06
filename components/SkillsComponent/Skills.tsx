@@ -16,23 +16,23 @@ export default function SkillsComponent() {
   const myCerts = getMyCerts();
 
   return (
-    <section id="skills&certs" className="max-w-[75%] mx-auto border-b border-[hsl(207,4%,16%)] py-5 pb-14">
+    <section id="skills&certs" className="w-full px-4 md:max-w-[75%] md:mx-auto border-b border-[hsl(207,4%,16%)] py-6 md:py-5 pb-8 md:pb-14">
       <div>
-        <h1 className="text-3xl font-bold py-7 text-center">
+        <h1 className="text-2xl md:text-3xl font-bold py-6 md:py-7 text-center">
           Skills & Certifications
         </h1>
       </div>
       <div className="h-max">
-        <div className="grid grid-cols-1 gap-14 lg:grid-cols-2 lg:gap-3">
+        <div className="grid grid-cols-1 gap-8 md:gap-14 lg:grid-cols-2 lg:gap-3">
           <div>
-            <div className="max-w-[75%] mx-auto sm:max-w-[95%]">
-              <div className="pb-2 lg:pb-5">
-                <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
+            <div className="w-full">
+              <div className="pb-4 md:pb-2 lg:pb-5">
+                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
                   <HiOutlineCode />
                   <span className="px-4">Languages</span>
                 </h1>
               </div>
-              <div className="grid grid-cols-3 gap-3 pb-3">
+              <div className="grid grid-cols-3 gap-2 md:gap-3 pb-3">
                 {myLanguages.map((language) => {
                   return (
                     <ToolsAndLanguages
@@ -46,14 +46,15 @@ export default function SkillsComponent() {
             </div>
           </div>
           <div>
-              <div className="max-w-[75%] mx-auto sm:max-w-[95%]">
-                <div className="pb-2 lg:pb-5">
-                  <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
+            <div>
+              <div className="w-full">
+                <div className="pb-4 md:pb-2 lg:pb-5">
+                  <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
                     <LiaToolsSolid />
                     <span className="px-4">Frameworks / Tools</span>
                   </h1>
                 </div>
-                <div className="grid grid-cols-3 gap-3 pb-3">
+                <div className="grid grid-cols-3 gap-2 md:gap-3 pb-3">
                   {myTools.map((tool) => {
                     return (
                       <ToolsAndLanguages
@@ -65,31 +66,32 @@ export default function SkillsComponent() {
                   })}
                 </div>
               </div>
+            </div>
           </div>
           <div>
-          <div className="max-w-[75%] mx-auto sm:max-w-[95%]">
-            <div className="pb-2 lg:pb-5">
-              <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
-                <AiOutlineCloud />
-                <span className="px-4">Cloud</span>
-              </h1>
-            </div>
-            <div className="grid grid-cols-3 gap-3 md:text-xs">
-            {myCloud.map((cloud) => {
-                return (
-                  <ToolsAndLanguages
-                    key={cloud.toolName}
-                    imageLocation={cloud.imageLocation}
-                    toolName={cloud.toolName}
-                  />
-                );
-              })}
+            <div className="w-full">
+              <div className="pb-4 md:pb-2 lg:pb-5">
+                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
+                  <AiOutlineCloud />
+                  <span className="px-4">Cloud</span>
+                </h1>
+              </div>
+              <div className="grid grid-cols-2 gap-2 md:gap-3">
+                {myCloud.map((cloud) => {
+                  return (
+                    <ToolsAndLanguages
+                      key={cloud.toolName}
+                      imageLocation={cloud.imageLocation}
+                      toolName={cloud.toolName}
+                    />
+                  );
+                })}
+              </div>
             </div>
           </div>
-          </div>
-          <div className="max-w-[75%] mx-auto sm:max-w-[95%]">
-            <div className="pb-2 lg:pb-5">
-              <h1 className="text-xl pb-2 font-semibold text-center flex items-center justify-center">
+          <div className="w-full">
+            <div className="pb-4 md:pb-2 lg:pb-5">
+              <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
                 <HiOutlineDocumentText />
                 <span className="px-4">Certifications</span>
               </h1>
@@ -99,7 +101,7 @@ export default function SkillsComponent() {
                 Working on Bagging Certs...
               </div>
             ) : (
-              <div className="grid grid-cols-3 gap-3 md:text-xs">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 text-sm md:text-xs">
                 {myCerts.map((certs) => {
                   return (
                     <ToolsAndLanguages
