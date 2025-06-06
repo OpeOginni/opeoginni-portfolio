@@ -24,21 +24,21 @@ const MobileHeaderNavLinks: NavLinks[] = [
 
 export default async function Header() {
   return (
-    <div className="p-[30px] flex flex-row justify-between text-center items-center overflow-hidden sticky top-0 bg-white/80 backdrop-blur-sm z-50 border-b-2 border-gray-200">
+    <div className="px-4 py-3 md:p-[30px] flex flex-row justify-between text-center items-center overflow-hidden bg-white sticky top-0 bg-white/80 backdrop-blur-sm z-50 border-b border-gray-200">
       <div>
         <Link
           href={"/"}
-          className="text-2xl font-extrabold md:pl-10 hover:text-indigo-500 hover:cursor-pointer"
+          className="text-lg md:text-2xl font-extrabold md:pl-10 hover:text-indigo-500 hover:cursor-pointer"
         >
           OpeOginni
         </Link>
       </div>
-      <div className="md:hidden grid grid-cols-3 gap-2 items-center">
+      <div className="md:hidden grid grid-cols-3 gap-1 items-center">
         {MobileHeaderNavLinks.map((MobileHeaderNavLink) => {
           return (
             <div
               key={MobileHeaderNavLink.key}
-              className="text-lg"
+              className="text-sm"
             >
               <Link href={MobileHeaderNavLink.link}>
                 {MobileHeaderNavLink.name}

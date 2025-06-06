@@ -61,25 +61,52 @@ export const Project = ({
 }: Props) => {
   return (
     <div className={cn(
-      "max-w-[75%] mx-auto py-14 sm:max-w-[95%]",
+      "w-full py-8 md:py-14",
       !lastProject && "border-b border-[hsl(207,4%,16%)]"
     )}>
-      <div className="lg:grid lg:grid-cols-2 lg:gap-5">
+      {/* Mobile Layout - Consistent pattern */}
+      <div className="lg:hidden space-y-6">
+        {/* Image always first on mobile */}
+        <div className="max-h-[250px]">
+          {image ? (
+            <Image
+              alt="Project Image"
+              width={758}
+              height={400}
+              src={image}
+              className="w-full h-full object-contain rounded-lg"
+              style={{ maxHeight: '250px' }}
+            />
+          ) : (
+            <Image
+              alt="Project Image"
+              width={0}
+              height={0}
+              src="/cloud/aws.svg"
+              style={{ width: "100%", height: "100%" }}
+              className="w-full h-full object-contain"
+            />
+          )}
+        </div>
+        
+        {/* Content always second on mobile */}
         <div>
-          <div id="headers" className="py-6 flex text-center justify-between ">
-            <h1 className="font-bold text-sm xl:text-lg">{title}</h1>
-            <h1 className="font-semibold text-xs xl:text-lg">
+          <div id="headers" className="pb-4 space-y-2">
+            <h1 className="font-bold text-lg">{title}</h1>
+            <h1 className="font-semibold text-sm text-gray-600">
               {shortDescription}
             </h1>
           </div>
           <div
             id="description"
-            className="text-justify py-6 text-sm xl:text-lg "
+            className="text-justify py-4 text-sm leading-relaxed"
           >
             {description}
           </div>
-          <ProjectLinksComp links={links} />
-          <div className="grid grid-cols-10 gap-3">
+          <div className="pb-4">
+            <ProjectLinksComp links={links} />
+          </div>
+          <div className="grid grid-cols-8 gap-2 pb-4">
             {tech.map((techName) => {
                 const techDetails = getTechDetails(techName);
                 return (
@@ -92,31 +119,71 @@ export const Project = ({
             })}
           </div>
 
-          <div id="date">
+          <div id="date" className="text-sm text-gray-500">
             {completedTime.toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
             })}
           </div>
         </div>
-        <div className="max-h-[400px]">
+      </div>
+
+      {/* Desktop Layout - Alternating pattern */}
+      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-5">
+        <div className="order-2 lg:order-1">
+          <div id="headers" className="py-6 flex text-center justify-between">
+            <h1 className="font-bold text-sm xl:text-lg">{title}</h1>
+            <h1 className="font-semibold text-xs xl:text-lg text-gray-600">
+              {shortDescription}
+            </h1>
+          </div>
+          <div
+            id="description"
+            className="text-justify py-6 text-sm xl:text-lg leading-relaxed"
+          >
+            {description}
+          </div>
+          <div className="pb-4">
+            <ProjectLinksComp links={links} />
+          </div>
+          <div className="grid grid-cols-10 gap-3 pb-4">
+            {tech.map((techName) => {
+                const techDetails = getTechDetails(techName);
+                return (
+                    <TechUsed
+                        key={techDetails.toolName}
+                        logoLocation={techDetails.imageLocation}
+                        techName={techDetails.toolName}
+                    />
+                );
+            })}
+          </div>
+
+          <div id="date" className="text-sm text-gray-500">
+            {completedTime.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+            })}
+          </div>
+        </div>
+        <div className="order-1 lg:order-2 max-h-[400px]">
           {image ? (
             <Image
-              alt="Project 1"
+              alt="Project Image"
               width={758}
               height={400}
               src={image}
-              className="hidden lg:block w-full h-full object-contain"
+              className="w-full h-full object-contain"
               style={{ maxHeight: '400px' }}
             />
           ) : (
             <Image
-              alt="Project 1"
+              alt="Project Image"
               width={0}
               height={0}
               src="/cloud/aws.svg"
               style={{ width: "100%", height: "100%" }}
-              className="hidden lg:block w-full h-full object-contain"
+              className="w-full h-full object-contain"
             />
           )}
         </div>
@@ -137,47 +204,52 @@ export const ProjectInverted = ({
 }: Props) => {
   return (
     <div className={cn(
-      "max-w-[75%] mx-auto py-14 sm:max-w-[95%]",
+      "w-full py-8 md:py-14",
       !lastProject && "border-b border-[hsl(207,4%,16%)]"
     )}>
-      <div className="lg:grid lg:grid-cols-2 lg:gap-5">
-        <div className="max-h-[400px]">
+      {/* Mobile Layout - Same consistent pattern as Project */}
+      <div className="lg:hidden space-y-6">
+        {/* Image always first on mobile */}
+        <div className="max-h-[250px]">
           {image ? (
             <Image
-              alt="Project 1"
+              alt="Project Image"
               width={758}
               height={400}
               src={image}
-              className="hidden lg:block w-full h-full object-contain"
-              style={{ maxHeight: '400px' }}
+              className="w-full h-full object-contain rounded-lg"
+              style={{ maxHeight: '250px' }}
             />
           ) : (
             <Image
-              alt="Project 1"
+              alt="Project Image"
               width={0}
               height={0}
               src="/cloud/aws.svg"
               style={{ width: "100%", height: "100%" }}
-              className="hidden lg:block w-full h-full object-contain"
+              className="w-full h-full object-contain"
             />
           )}
         </div>
-
+        
+        {/* Content always second on mobile */}
         <div>
-          <div id="headers" className="py-6 flex text-center justify-between ">
-            <h1 className="font-bold text-sm xl:text-lg">{title}</h1>
-            <h1 className="font-semibold text-xs xl:text-lg">
+          <div id="headers" className="pb-4 space-y-2">
+            <h1 className="font-bold text-lg">{title}</h1>
+            <h1 className="font-semibold text-sm text-gray-600">
               {shortDescription}
             </h1>
           </div>
           <div
             id="description"
-            className="text-justify py-6 text-sm xl:text-lg "
+            className="text-justify py-4 text-sm leading-relaxed"
           >
             {description}
           </div>
-          <ProjectLinksComp links={links} />
-          <div className="grid grid-cols-10 gap-3">
+          <div className="pb-4">
+            <ProjectLinksComp links={links} />
+          </div>
+          <div className="grid grid-cols-8 gap-2 pb-4">
             {tech.map((techName) => {
                 const techDetails = getTechDetails(techName);
                 return (
@@ -190,7 +262,69 @@ export const ProjectInverted = ({
             })}
           </div>
 
-          <div id="date">
+          <div id="date" className="text-sm text-gray-500">
+            {completedTime.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop Layout - Inverted pattern */}
+      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-5">
+        <div className="order-1 max-h-[400px]">
+          {image ? (
+            <Image
+              alt="Project Image"
+              width={758}
+              height={400}
+              src={image}
+              className="w-full h-full object-contain"
+              style={{ maxHeight: '400px' }}
+            />
+          ) : (
+            <Image
+              alt="Project Image"
+              width={0}
+              height={0}
+              src="/cloud/aws.svg"
+              style={{ width: "100%", height: "100%" }}
+              className="w-full h-full object-contain"
+            />
+          )}
+        </div>
+
+        <div className="order-2">
+          <div id="headers" className="py-6 flex text-center justify-between">
+            <h1 className="font-bold text-sm xl:text-lg">{title}</h1>
+            <h1 className="font-semibold text-xs xl:text-lg text-gray-600">
+              {shortDescription}
+            </h1>
+          </div>
+          <div
+            id="description"
+            className="text-justify py-6 text-sm xl:text-lg leading-relaxed"
+          >
+            {description}
+          </div>
+          <div className="pb-4">
+            <ProjectLinksComp links={links} />
+          </div>
+          <div className="grid grid-cols-10 gap-3 pb-4">
+            {tech.map((techName) => {
+                const techDetails = getTechDetails(techName);
+                return (
+                    <TechUsed
+                        key={techDetails.toolName}
+                        logoLocation={techDetails.imageLocation}
+                        techName={techDetails.toolName}
+                    />
+                );
+            })}
+          </div>
+
+          <div id="date" className="text-sm text-gray-500">
             {completedTime.toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -204,7 +338,7 @@ export const ProjectInverted = ({
 
 export const EmptyProject = () => {
   return (
-    <div className="flex items-center justify-center max-w-[75%] mx-auto py-14 sm:max-w-[95%] min-h-[60vh]">
+    <div className="flex items-center justify-center w-full py-8 md:py-14 min-h-[50vh]">
       <div className="flex flex-col items-center justify-center">
         <GhostIcon className="w-10 h-10" />
         <h1 className="text-lg font-bold">No Projects Found (YET)</h1>
@@ -217,27 +351,18 @@ const ProjectLinksComp = ({ links }: LinksProps) => {
   return (
     <div
       id="links"
-      className="flex h-5 items-center space-x-4 text-sm text-indigo-600"
+      className="flex flex-wrap gap-3 md:flex-nowrap md:h-5 md:items-center text-sm text-indigo-600"
     >
       {links.map((link, index) => {
         return (
           <Fragment key={link.linkTitle}>
-            {index === links.length - 1 ? (
-              <div key={link.linkTitle}>
-                <Link href={link.link} target="blank">
-                  {link.linkTitle}
-                </Link>
-              </div>
-            ) : (
-              <Fragment key={link.linkTitle}>
-                {" "}
-                <div key={link.linkTitle}>
-                  <Link href={link.link} target="blank">
-                    {link.linkTitle}
-                  </Link>
-                </div>
-                <Separator orientation="vertical" />{" "}
-              </Fragment>
+            <div key={link.linkTitle}>
+              <Link href={link.link} target="blank" className="hover:text-indigo-500 transition-colors">
+                {link.linkTitle}
+              </Link>
+            </div>
+            {index < links.length - 1 && (
+              <div className="text-gray-400 select-none">|</div>
             )}
           </Fragment>
         );

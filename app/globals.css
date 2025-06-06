@@ -1,6 +1,15 @@
 @import "tailwindcss";
  
 @layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;

@@ -7,7 +7,7 @@ import Header from "@/components/Header/Header";
 export default function Home() {
   return (
     <>
-      <div className="mt-28 z-[1] relative">
+      <div className="mt-8 md:mt-28 z-[1] relative">
         <IntroComponent />
         <SkillsComponent />
         <ProjectsSection />
