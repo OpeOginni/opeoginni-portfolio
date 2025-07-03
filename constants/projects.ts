@@ -21,6 +21,33 @@ export interface ProjectLink {
 }
 
 export const myProjects: Projects[] = [{
+    title: "Redmond Consultants App",
+    completedTime: new Date("2025-07-03"),
+    shortDescription: "Langugage Learning",
+    description: "Enterprise-grade language learning platform serving corporate clients with AI-powered audio synthesis. Built with Next.js, featuring gamified learning modules, real-time progress tracking, and seamless ElevenLabs integration. Deployed on Railway with PostgreSQL and Docker orchestration.",
+    link: [
+        {
+            linkTitle: "App URL",
+            link: "https://app.redmondconsultants.com/",
+        },
+        {
+            linkTitle: "Company Site",
+            link: "https://redmondconsultants.com/home"
+        }
+    ],
+    tech: [
+        LanguageName.TYPESCRIPT,
+        ToolName.NEXTJS,
+        ToolName.TAILWINDCSS,
+        ToolName.POSTGRESQL,
+        ToolName.AUTH_JS,
+        ToolName.ELEVENLABS,
+        ToolName.DOCKER,
+        CloudName.RAILWAY,
+    ],
+    image: "/projects/redmond-consultants.png"
+    },
+    {
     title: "StarBridge",
     completedTime: new Date("2025-03-17"),
     shortDescription: "SaaS | Currency Swap | Telegram Bot",

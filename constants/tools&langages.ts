@@ -18,7 +18,8 @@ export enum ToolName {
   NPM = "npm",
   CLOUDFORMATION = "cloudformation",
   AUTH_JS = "auth_js",
-  BUN = "bun"
+  BUN = "bun",
+  ELEVENLABS = "elevenlabs",
 }
 
 export enum LanguageName {
@@ -37,6 +38,7 @@ export enum LanguageName {
 export enum CloudName {
   AWS = "aws",
   RAILWAY = "railway",
+  VERCEL = "vercel",
 }
 
 export enum ChainName {
