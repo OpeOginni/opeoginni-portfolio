@@ -98,7 +98,7 @@ export const myProjects: Projects[] = [{
     title: "Solana Trade Connect",
     completedTime: new Date("2024-04-08"),
     shortDescription: "Dev Tool | Solana | Microservices",
-    description: "A Wallet As A Service system, that allows developers simply add in NFT trading and chat features to their dApps without having to build the infrastructure leaving them to focus on building their product.",
+    description: "A Marketplace As A Service system that allows developers to integrate NFT or item trading into their apps with just APIs. The complete infrastructure including chat, authentication, and trade functionality is handled on the backend, enabling developers to focus on building their core product while seamlessly adding marketplace capabilities.",
     link: [
         {
             linkTitle: "GitHub",
