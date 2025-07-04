@@ -20,6 +20,7 @@ export enum ToolName {
   AUTH_JS = "auth_js",
   BUN = "bun",
   ELEVENLABS = "elevenlabs",
+  TERRAFORM = "terraform",
 }
 
 export enum LanguageName {
@@ -140,7 +141,8 @@ function getDisplayName(name: string): string {
     aws: "AWS",
     tezos: "Tezos",
     flow: "Flow",
-    bun: "Bun"
+    bun: "Bun",
+    terraform: "Terraform"
   };
 
   return displayNames[name] || name;
@@ -155,7 +157,7 @@ export const getMyTools = (): Tool[] => [
   getTool(ToolName.MONGODB),
   getTool(ToolName.POSTGRESQL),
   getTool(ToolName.DOCKER),
-  getTool(ToolName.BUN)
+  getTool(ToolName.TERRAFORM)
 ];
 
 export const getMyLanguages = (): Language[] => [
