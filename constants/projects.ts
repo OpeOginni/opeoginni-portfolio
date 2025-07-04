@@ -48,6 +48,28 @@ export const myProjects: Projects[] = [{
     image: "/projects/redmond-consultants.png"
     },
     {
+        title: "Tic Tac Toe",
+        completedTime: new Date("2025-07-01"),
+        shortDescription: "Game | AWS | Terraform",
+        description: "A modern Tic Tac Toe game demonstrating AI-assisted development workflows and cloud-native deployment practices. Built using Cursor Editor with AI-driven code generation to showcase efficient development methodologies. Features containerized deployment on AWS ECS with Fargate, implementing auto-scaling infrastructure provisioned through Terraform for optimal performance and cost efficiency.",
+        link: [
+            {
+                linkTitle: "GitHub",
+                link: "https://github.com/OpeOginni/tic-tac-toe",
+            }
+        ],
+        tech: [
+            LanguageName.TYPESCRIPT,
+            ToolName.NEXTJS,
+            ToolName.TAILWINDCSS,
+            ToolName.SOCKET_IO,
+            ToolName.DOCKER,
+            CloudName.AWS,
+            ToolName.TERRAFORM
+        ],
+        image: "/projects/tic-tac-toe.png",
+    },
+    {
     title: "StarBridge",
     completedTime: new Date("2025-03-17"),
     shortDescription: "SaaS | Currency Swap | Telegram Bot",
@@ -142,33 +164,6 @@ export const myProjects: Projects[] = [{
         ],
         image: "/projects/cruddur.png",
     },
-    {
-        title: "Tic Tac Toe",
-        completedTime: new Date("2025-03-14"),
-        shortDescription: "Game | AI Companion",
-        description: "A Simple Tic Tac Toe Game, made use of the Cursor Editor and AI to spearhead code generation, as a test with the so called 'Vibe Coding'.",
-        link: [
-            {
-                linkTitle: "GitHub",
-                link: "https://github.com/OpeOginni/tic-tac-toe",
-            },
-            {
-                linkTitle: "Live Site",
-                link: "https://tic-tac-toe-seven-tawny.vercel.app/",
-            },
-        ],
-        tech: [
-            LanguageName.TYPESCRIPT,
-            ToolName.NEXTJS,
-            ToolName.TAILWINDCSS,
-            ToolName.SOCKET_IO,
-            ToolName.DOCKER,
-            CloudName.RAILWAY,
-            ToolName.BUN
-        ],
-        image: "/projects/tic-tac-toe.png",
-    },
-
     {
         title: "Cardify",
         completedTime: new Date("2023-01-01"),
