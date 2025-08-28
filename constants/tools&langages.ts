@@ -21,6 +21,7 @@ export enum ToolName {
   BUN = "bun",
   ELEVENLABS = "elevenlabs",
   TERRAFORM = "terraform",
+  GIT = "git",
 }
 
 export enum LanguageName {
@@ -149,23 +150,21 @@ function getDisplayName(name: string): string {
 }
 
 export const getMyTools = (): Tool[] => [
+  getTool(ToolName.NESTJS),
+  getTool(ToolName.DOCKER),
+  getTool(ToolName.SPRING_BOOT),
   getTool(ToolName.NEXTJS),
   getTool(ToolName.TAILWINDCSS),
-  getTool(ToolName.NESTJS),
-  getTool(ToolName.SPRING_BOOT),
-  getTool(ToolName.DRIZZLE),
-  getTool(ToolName.MONGODB),
-  getTool(ToolName.POSTGRESQL),
-  getTool(ToolName.DOCKER),
+  getTool(ToolName.GIT),
+  getTool(ToolName.NODEJS),
   getTool(ToolName.TERRAFORM)
 ];
 
 export const getMyLanguages = (): Language[] => [
   getLanguage(LanguageName.TYPESCRIPT),
-  getLanguage(LanguageName.JAVASCRIPT),
-  getLanguage(LanguageName.SOLIDITY),
   getLanguage(LanguageName.GOLANG),
   getLanguage(LanguageName.JAVA),
+  getLanguage(LanguageName.SOLIDITY),
   getLanguage(LanguageName.CADENCE),
 ];
 

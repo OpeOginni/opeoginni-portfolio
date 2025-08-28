@@ -22,9 +22,9 @@ export const myEducationQualificaions: Qualifications[] = [
 
 export const myWorkQualifications: Qualifications[] = [
     {
-        qualification: "Junior Backend Developer",
-        institution: "Centiiv",
-        period: "2022 - 2023",
+        qualification: "Full Stack / Blockchain Developer (Contractor)",
+        institution: "Kingdomly",
+        period: "Sept 2024 - April 2025",
         description: ""
     },
     {
@@ -34,9 +34,9 @@ export const myWorkQualifications: Qualifications[] = [
         description: ""
     },
     {
-        qualification: "Full Stack / Blockchain Developer (Contractor)",
-        institution: "Kingdomly",
-        period: "Sept 2024 - April 2025",
+        qualification: "Junior Backend Developer",
+        institution: "Centiiv",
+        period: "2022 - 2023",
         description: ""
-    }
+    },
 ]
