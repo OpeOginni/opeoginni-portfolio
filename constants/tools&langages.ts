@@ -22,6 +22,10 @@ export enum ToolName {
   ELEVENLABS = "elevenlabs",
   TERRAFORM = "terraform",
   GIT = "git",
+  CONVEX = "convex",
+  OPEN_ROUTER="open_router",
+  GEMINI="gemini",
+  POLAR="polar"
 }
 
 export enum LanguageName {
@@ -143,7 +147,12 @@ function getDisplayName(name: string): string {
     tezos: "Tezos",
     flow: "Flow",
     bun: "Bun",
-    terraform: "Terraform"
+    elevenlabs: "Eleven Labs",
+    terraform: "Terraform",
+    convex: "Convex",
+    open_router: "Open Router",
+    gemini: "Google Gemini",
+    polar: "Polar"
   };
 
   return displayNames[name] || name;

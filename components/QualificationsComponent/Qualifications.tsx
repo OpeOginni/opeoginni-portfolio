@@ -31,7 +31,8 @@ export default function QualificationsComponent() {
                       <div key={educationQualification.qualification}>
                         <Qualifications
                           qualification={educationQualification.qualification}
-                          institution={educationQualification.institution}
+                          institution= {educationQualification.institution}
+                          location={educationQualification.location}
                           period={educationQualification.period}
                           description={educationQualification.description}
                         />
@@ -69,6 +70,7 @@ export default function QualificationsComponent() {
                           institution={workQualifications.institution}
                           period={workQualifications.period}
                           description={workQualifications.description}
+                          location={workQualifications.location}
                         />
                         {index < myWorkQualifications.length - 1 && (
                           <div className="w-12 h-px bg-gray-200 mx-auto mt-6"></div>
