@@ -10,8 +10,8 @@ export default function Home() {
       <div className="mt-8 md:mt-28 z-[1] relative">
         <IntroComponent />
         <SkillsComponent />
-        <ProjectsSection />
         <QualificationsComponent />
+        <ProjectsSection />
       </div>
     </>
   );

@@ -24,11 +24,11 @@ const MobileHeaderNavLinks: NavLinks[] = [
 
 export default async function Header() {
   return (
-    <div className="px-4 py-3 md:p-[30px] flex flex-row justify-between text-center items-center overflow-hidden bg-white sticky top-0 bg-white/80 backdrop-blur-sm z-50 border-b border-gray-200">
+    <div className="px-4 py-3 md:px-8 md:py-4 flex flex-row justify-between text-center items-center overflow-hidden bg-gradient-to-r from-slate-50 to-gray-50 sticky top-0 backdrop-blur-md z-50 border-b border-gray-200/50 shadow-sm">
       <div>
         <Link
           href={"/"}
-          className="text-lg md:text-2xl font-extrabold md:pl-10 hover:text-indigo-500 hover:cursor-pointer"
+          className="text-lg md:text-2xl font-extrabold md:pl-4 hover:text-indigo-500 hover:cursor-pointer"
         >
           OpeOginni
         </Link>
@@ -38,7 +38,7 @@ export default async function Header() {
           return (
             <div
               key={MobileHeaderNavLink.key}
-              className="text-sm"
+              className="text-xs font-medium"
             >
               <Link href={MobileHeaderNavLink.link}>
                 {MobileHeaderNavLink.name}
@@ -50,12 +50,12 @@ export default async function Header() {
       <div className="hidden md:grid grid-cols-5 gap-4 items-center">
         {HeaderNavLinks.map((HeaderNavLink) => {
           return (
-            <div key={HeaderNavLink.key} className="text-lg">
+            <div key={HeaderNavLink.key} className="text-sm font-medium">
               <Link 
                 href={HeaderNavLink.link}
                 className={`${
-                  HeaderNavLink.name === "Projects" 
-                    ? "relative flex items-center justify-center text-lg"
+                  HeaderNavLink.name === "Projects"
+                    ? "relative flex items-center justify-center text-sm font-medium"
                     : ""
                 }`}
               >

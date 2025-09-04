@@ -12,7 +12,7 @@ export interface Projects {
     description: string;
     link: ProjectLink[];
     tech: (ToolName | LanguageName | CloudName | ChainName)[];
-    image?: string;
+    image: string;
 }
 
 export interface ProjectLink {
@@ -21,13 +21,67 @@ export interface ProjectLink {
 }
 
 export const myProjects: Projects[] = [{
+    title: "Convo-Stream",
+    completedTime: new Date("2025-09-03"),
+    shortDescription: "AI Tooling | Cloud Native | AWS",
+    description: "This is an AWS Deployed backend system that allows individuals to have real time speech conversations with AI models. The Backend handles all processes from Audio Capture, to Trascription, to generation of repsonse and finally speech synthesis.",
+    link: [
+        {
+            linkTitle: "GitHub Repo",
+            link: "https://github.com/OpeOginni/convo-stream",
+        },
+        {
+            linkTitle: "Architecture Diagram",
+            link: "https://github.com/OpeOginni/convo-stream/blob/main/Architectural%20Diagram.jpeg",
+        },
+        {
+            linkTitle: "Demo Video",
+            link: "https://www.linkedin.com/posts/opeyemi-oginni-9468a0232_excited-to-share-a-project-ive-been-building-activity-7368995800741339138-pQ_t?utm_source=share&utm_medium=member_desktop&rcm=ACoAADom70YBUZ2b9XOF19LKhQH_XR_YcDQAHcE"
+        }
+    ],
+    tech: [
+        LanguageName.TYPESCRIPT,
+        ToolName.BUN,
+        ToolName.DOCKER,
+        CloudName.AWS,
+        ToolName.CLOUDFORMATION,
+        ToolName.GEMINI,
+        ToolName.OPEN_ROUTER,
+        ToolName.SOCKET_IO,
+        ToolName.ELEVENLABS
+    ],
+    image: "/projects/convo-stream.jpeg"
+},
+    {
+    title: "My Contxt",
+    completedTime: new Date("2025-08-20"),
+    shortDescription: "AI Tooling | SaaS",
+    description: "Application that enables users of multiple chatbots to manage cntexts of their conversations, giving them the ability to export context that are simplified for use in other chatbots, or even for IDE agents, or Faq's and much more.",
+    link: [
+        {
+            linkTitle: "App",
+            link: "https://mycontxt.app/",
+        }
+    ],
+    tech: [
+        LanguageName.TYPESCRIPT,
+        ToolName.NEXTJS,
+        ToolName.TAILWINDCSS,
+        ToolName.CONVEX,
+        ToolName.OPEN_ROUTER,
+        ToolName.GEMINI,
+        ToolName.POLAR
+    ],
+    image: "/projects/mycontxt.png"
+    },
+    {
     title: "Redmond Consultants App",
     completedTime: new Date("2025-07-03"),
     shortDescription: "Langugage Learning",
     description: "Enterprise-grade language learning platform serving corporate clients with AI-powered audio synthesis. Built with Next.js, featuring gamified learning modules, real-time progress tracking, and seamless ElevenLabs integration. Deployed on Railway with PostgreSQL and Docker orchestration.",
     link: [
         {
-            linkTitle: "App URL",
+            linkTitle: "App",
             link: "https://app.redmondconsultants.com/",
         },
         {
@@ -54,7 +108,7 @@ export const myProjects: Projects[] = [{
         description: "A modern Tic Tac Toe game demonstrating AI-assisted development workflows and cloud-native deployment practices. Built using Cursor Editor with AI-driven code generation to showcase efficient development methodologies. Features containerized deployment on AWS ECS with Fargate, implementing auto-scaling infrastructure provisioned through Terraform for optimal performance and cost efficiency.",
         link: [
             {
-                linkTitle: "GitHub",
+                linkTitle: "GitHub Repo",
                 link: "https://github.com/OpeOginni/tic-tac-toe",
             }
         ],
@@ -76,7 +130,7 @@ export const myProjects: Projects[] = [{
     description: "A Telegram Bot that allows users to swap their Telegram Stars (Platform Currency) to Stable Coins like USDT & USDC on the TON, BSC and opBNB Chains. Currently with 2k+ users, $8k in swap volume in 2 months.",
     link: [
         {
-            linkTitle: "Bot URL",
+            linkTitle: "Bot",
             link: "https://t.me/StarBridgeTGBot",
         },
         {
@@ -164,26 +218,25 @@ export const myProjects: Projects[] = [{
         ],
         image: "/projects/cruddur.png",
     },
-    {
-        title: "Cardify",
-        completedTime: new Date("2023-01-01"),
-        shortDescription: "Fullstack | E-Commerce",
-        description:
-            "This is a site that let users order bank cards from the comfort of their home, and make payments with stripe. Built the Frontend using NextJs and the Backend Using Node and ExpressJS.",
-        link: [
-            {
-                linkTitle: "GitHub",
-                link: "https://github.com/OpeOginni/Cardify_Project",
-            },
-            {
-                linkTitle: "Live Site",
-                link: "https://cardifyproject-production.up.railway.app/",
-            },
-        ],
-        tech: [ToolName.NEXTJS, ToolName.NODEJS, ToolName.TAILWINDCSS, LanguageName.JAVASCRIPT, ToolName.MONGODB],
-        image: "/projects/cardify-4.png",
-    },
-
+    // {
+    //     title: "Cardify",
+    //     completedTime: new Date("2023-01-01"),
+    //     shortDescription: "Fullstack | E-Commerce",
+    //     description:
+    //         "This is a site that let users order bank cards from the comfort of their home, and make payments with stripe. Built the Frontend using NextJs and the Backend Using Node and ExpressJS.",
+    //     link: [
+    //         {
+    //             linkTitle: "GitHub",
+    //             link: "https://github.com/OpeOginni/Cardify_Project",
+    //         },
+    //         {
+    //             linkTitle: "Live Site",
+    //             link: "https://cardifyproject-production.up.railway.app/",
+    //         },
+    //     ],
+    //     tech: [ToolName.NEXTJS, ToolName.NODEJS, ToolName.TAILWINDCSS, LanguageName.JAVASCRIPT, ToolName.MONGODB],
+    //     image: "/projects/cardify-4.png",
+    // },
     {
         title: "Luggage Booking App",
         completedTime: new Date("2023-11-01"),
@@ -219,7 +272,7 @@ export const myProjects: Projects[] = [{
         completedTime: new Date("2024-02-18"),
         shortDescription: "Dev Tool | CLI",
         description:
-            "Scaffolding CLI that speeds up frontend setup time for developers building dApps on Tezos",
+            "Scaffolding CLI that speeds up frontend setup time for developers building dApps on Tezos Blockchain",
         link: [
             {
                 linkTitle: "GitHub",
@@ -237,39 +290,39 @@ export const myProjects: Projects[] = [{
         ],
         image: "/projects/create-tez-dapp.png",
     },
-    {
-        title: "Flow Sign",
-        completedTime: new Date("2023-10-03"),
-        shortDescription: "SaaS | Blockchain | Social Auth",
-        description:
-        "A blockchain-powered document signing platform that revolutionizes traditional e-signatures by anchoring them on the Flow blockchain. Features a seamless social authentication system where users can securely access their blockchain wallets through Google Sign-In, with wallet creation and management handled automatically in the backend. This creates a frictionless Web3 experience while maintaining the security and immutability of blockchain-based signatures.",
-        link: [
-            {
-                linkTitle: "GitHub",
-                link: "https://github.com/OpeOginni/flow-sign",
-            },
-            {
-                linkTitle: "Readme",
-                link: "https://github.com/OpeOginni/flow-sign/blob/main/README.md",
-            },
-            {
-                linkTitle: "Demo Video",
-                link: "https://www.loom.com/share/043ea49491fe41a189a76ec06ca3b640?sid=1e4d960a-ae48-4d9e-af35-6dced89274ab"
-            },
-            {
-                linkTitle: "Site",
-                link: "https://flow-sign.vercel.app/",
-            },
-        ],
-        tech: [
-            ToolName.NEXTJS,
-            ToolName.TAILWINDCSS,
-            ToolName.POSTGRESQL,
-            ToolName.DRIZZLE,
-            LanguageName.CADENCE,
-            LanguageName.TYPESCRIPT,
-            ToolName.AUTH_JS
-        ],
-        image: "/projects/flow-sign.png",
-    },
+    // {
+    //     title: "Flow Sign",
+    //     completedTime: new Date("2023-10-03"),
+    //     shortDescription: "SaaS | Blockchain | Social Auth",
+    //     description:
+    //     "A blockchain-powered document signing platform that revolutionizes traditional e-signatures by anchoring them on the Flow blockchain. Features a seamless social authentication system where users can securely access their blockchain wallets through Google Sign-In, with wallet creation and management handled automatically in the backend. This creates a frictionless Web3 experience while maintaining the security and immutability of blockchain-based signatures.",
+    //     link: [
+    //         {
+    //             linkTitle: "GitHub",
+    //             link: "https://github.com/OpeOginni/flow-sign",
+    //         },
+    //         {
+    //             linkTitle: "Readme",
+    //             link: "https://github.com/OpeOginni/flow-sign/blob/main/README.md",
+    //         },
+    //         {
+    //             linkTitle: "Demo Video",
+    //             link: "https://www.loom.com/share/043ea49491fe41a189a76ec06ca3b640?sid=1e4d960a-ae48-4d9e-af35-6dced89274ab"
+    //         },
+    //         {
+    //             linkTitle: "Site",
+    //             link: "https://flow-sign.vercel.app/",
+    //         },
+    //     ],
+    //     tech: [
+    //         ToolName.NEXTJS,
+    //         ToolName.TAILWINDCSS,
+    //         ToolName.POSTGRESQL,
+    //         ToolName.DRIZZLE,
+    //         LanguageName.CADENCE,
+    //         LanguageName.TYPESCRIPT,
+    //         ToolName.AUTH_JS
+    //     ],
+    //     image: "/projects/flow-sign.png",
+    // },
 ];

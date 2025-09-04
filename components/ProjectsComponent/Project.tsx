@@ -17,6 +17,7 @@ import Link from "next/link";
 import { Fragment } from "react";
 import { cn } from "@/lib/utils";
 import { GhostIcon } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 
 interface Props {
   title: string;
@@ -26,7 +27,7 @@ interface Props {
   links: ProjectLink[];
   tech: (ToolName | LanguageName | CloudName | ChainName)[];
   lastProject?: boolean;
-  image?: string;
+  image: string;
 }
 
 interface LinksProps {
@@ -67,26 +68,31 @@ export const Project = ({
       {/* Mobile Layout - Consistent pattern */}
       <div className="lg:hidden space-y-6">
         {/* Image always first on mobile */}
-        <div className="max-h-[250px]">
-          {image ? (
-            <Image
-              alt="Project Image"
-              width={758}
-              height={400}
-              src={image}
-              className="w-full h-full object-contain rounded-lg"
-              style={{ maxHeight: '250px' }}
-            />
-          ) : (
-            <Image
-              alt="Project Image"
-              width={0}
-              height={0}
-              src="/cloud/aws.svg"
-              style={{ width: "100%", height: "100%" }}
-              className="w-full h-full object-contain"
-            />
-          )}
+        <div className="max-h-[250px] hover:cursor-pointer">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button aria-label={`Open ${title} image`} className="w-full">
+                <Image
+                  alt={`${title} screenshot`}
+                  width={758}
+                  height={400}
+                  src={image}
+                  className="w-full h-full object-contain rounded-lg"
+                  style={{ maxHeight: '250px' }}
+                />
+              </button>
+            </DialogTrigger>
+            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
+              <Image
+                alt={`${title} screenshot (full view)`}
+                width={1200}
+                height={800}
+                src={image}
+                sizes="100vw"
+                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
         
         {/* Content always second on mobile */}
@@ -166,26 +172,31 @@ export const Project = ({
             })}
           </div>
         </div>
-        <div className="order-1 lg:order-2 max-h-[400px]">
-          {image ? (
-            <Image
-              alt="Project Image"
-              width={758}
-              height={400}
-              src={image}
-              className="w-full h-full object-contain"
-              style={{ maxHeight: '400px' }}
-            />
-          ) : (
-            <Image
-              alt="Project Image"
-              width={0}
-              height={0}
-              src="/cloud/aws.svg"
-              style={{ width: "100%", height: "100%" }}
-              className="w-full h-full object-contain"
-            />
-          )}
+        <div className="order-1 lg:order-2 max-h-[400px] hover:cursor-pointer">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button aria-label={`Open ${title} image`} className="w-full">
+                <Image
+                  alt={`${title} screenshot`}
+                  width={758}
+                  height={400}
+                  src={image}
+                  className="w-full h-full object-contain"
+                  style={{ maxHeight: '400px' }}
+                />
+              </button>
+            </DialogTrigger>
+            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
+              <Image
+                alt={`${title} screenshot (full view)`}
+                width={1920}
+                height={1080}
+                src={image}
+                sizes="100vw"
+                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </div>
@@ -210,26 +221,31 @@ export const ProjectInverted = ({
       {/* Mobile Layout - Same consistent pattern as Project */}
       <div className="lg:hidden space-y-6">
         {/* Image always first on mobile */}
-        <div className="max-h-[250px]">
-          {image ? (
-            <Image
-              alt="Project Image"
-              width={758}
-              height={400}
-              src={image}
-              className="w-full h-full object-contain rounded-lg"
-              style={{ maxHeight: '250px' }}
-            />
-          ) : (
-            <Image
-              alt="Project Image"
-              width={0}
-              height={0}
-              src="/cloud/aws.svg"
-              style={{ width: "100%", height: "100%" }}
-              className="w-full h-full object-contain"
-            />
-          )}
+        <div className="max-h-[250px] hover:cursor-pointer">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button aria-label={`Open ${title} image`} className="w-full">
+                <Image
+                  alt={`${title} screenshot`}
+                  width={758}
+                  height={400}
+                  src={image}
+                  className="w-full h-full object-contain rounded-lg"
+                  style={{ maxHeight: '250px' }}
+                />
+              </button>
+            </DialogTrigger>
+            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
+              <Image
+                alt={`${title} screenshot (full view)`}
+                width={1200}
+                height={800}
+                src={image}
+                sizes="100vw"
+                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
         
         {/* Content always second on mobile */}
@@ -273,26 +289,31 @@ export const ProjectInverted = ({
 
       {/* Desktop Layout - Inverted pattern */}
       <div className="hidden lg:grid lg:grid-cols-2 lg:gap-5">
-        <div className="order-1 max-h-[400px]">
-          {image ? (
-            <Image
-              alt="Project Image"
-              width={758}
-              height={400}
-              src={image}
-              className="w-full h-full object-contain"
-              style={{ maxHeight: '400px' }}
-            />
-          ) : (
-            <Image
-              alt="Project Image"
-              width={0}
-              height={0}
-              src="/cloud/aws.svg"
-              style={{ width: "100%", height: "100%" }}
-              className="w-full h-full object-contain"
-            />
-          )}
+        <div className="order-1 max-h-[400px] hover:cursor-pointer">
+          <Dialog>
+            <DialogTrigger asChild>
+              <button aria-label={`Open ${title} image`} className="w-full">
+                <Image
+                  alt={`${title} screenshot`}
+                  width={758}
+                  height={400}
+                  src={image}
+                  className="w-full h-full object-contain"
+                  style={{ maxHeight: '400px' }}
+                />
+              </button>
+            </DialogTrigger>
+            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
+              <Image
+                alt={`${title} screenshot (full view)`}
+                width={1920}
+                height={1080}
+                src={image}
+                sizes="100vw"
+                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
 
         <div className="order-2">
