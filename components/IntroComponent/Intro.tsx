@@ -17,13 +17,13 @@ export default function IntroComponent() {
           <p className="text-base md:text-s pb-4 md:pb-2 leading-relaxed">
             A versatile software developer passionate about building 
             efficient solutions using the right tools for each challenge. 
-            Always eager to tackle new problems and learn emerging technologies.
+            Always eager to tackle new problems and learn emerging technologies. Always love to fix bugs.
           </p>
         </div>
         <div className="py-6 md:py-12">
-            <Link 
-              href={"/#projects"} 
-              className="inline-flex items-center gap-2 py-3 px-6 md:py-2 md:px-4 border rounded-lg border-[#5E17EB] text-[#5E17EB] hover:bg-[#5E17EB] hover:text-white transition-all duration-300 text-base md:text-sm"
+            <Link
+              href={"/#projects"}
+              className="inline-flex items-center gap-2 py-3 px-6 md:py-2 md:px-4 border rounded-lg bg-[#5E17EB] text-white hover:bg-[#4C1D95] transition-colors duration-300 text-base md:text-sm"
             >
               My Projects <MoveRightIcon className="w-4 h-4" />
             </Link>
