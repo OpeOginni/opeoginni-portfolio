@@ -20,7 +20,36 @@ export interface ProjectLink {
     link: string;
 }
 
-export const myProjects: Projects[] = [{
+export const myProjects: Projects[] = [
+    {
+    title: "Flowmate",
+    completedTime: new Date("2025-11-10"),
+    shortDescription: "AI Tooling | Blockchain | AI Assistant",
+    description: "Flow Mate is a personal helper built on the Flow Blockchain that helps you with multiple tasks on the blockchain from sending tokens to swapping tokens in seconds, using just natural language.",
+    link: [
+        {
+            linkTitle: "GitHub Repo",
+            link: "https://github.com/OpeOginni/flowmate",
+        },
+        {
+            linkTitle: "Demo Video",
+            link: "https://youtu.be/R-KRpGxy5oU"
+        },
+        {
+            linkTitle: "Site",
+            link: "https://flow-matee.vercel.app/"
+        }
+    ],
+    tech: [
+        LanguageName.TYPESCRIPT,
+        ToolName.NEXTJS,
+        ToolName.OPEN_ROUTER,
+        ChainName.FLOW,
+        ToolName.QWEN
+    ],
+    image: "/projects/flowmate.png"
+    },
+    {
     title: "Convo-Stream",
     completedTime: new Date("2025-09-03"),
     shortDescription: "AI Tooling | Cloud Native | AWS",
@@ -267,29 +296,29 @@ export const myProjects: Projects[] = [{
         ],
         image: "/projects/luggage-booking.png",
     },
-    {
-        title: "Create-tez-dApp CLI",
-        completedTime: new Date("2024-02-18"),
-        shortDescription: "Dev Tool | CLI",
-        description:
-            "Scaffolding CLI that speeds up frontend setup time for developers building dApps on Tezos Blockchain",
-        link: [
-            {
-                linkTitle: "GitHub",
-                link: "https://github.com/OpeOginni/tezos-dev-suite/tree/main/create-tez-dapp",
-            },
-            {
-                linkTitle: "NPM Site",
-                link: "https://www.npmjs.com/package/create-tez-dapp?activeTab=readme",
-            },
-        ],
-        tech: [
-            ToolName.NPM,
-            LanguageName.JAVASCRIPT,
-            ChainName.TEZOS,
-        ],
-        image: "/projects/create-tez-dapp.png",
-    },
+    // {
+    //     title: "Create-tez-dApp CLI",
+    //     completedTime: new Date("2024-02-18"),
+    //     shortDescription: "Dev Tool | CLI",
+    //     description:
+    //         "Scaffolding CLI that speeds up frontend setup time for developers building dApps on Tezos Blockchain",
+    //     link: [
+    //         {
+    //             linkTitle: "GitHub",
+    //             link: "https://github.com/OpeOginni/tezos-dev-suite/tree/main/create-tez-dapp",
+    //         },
+    //         {
+    //             linkTitle: "NPM Site",
+    //             link: "https://www.npmjs.com/package/create-tez-dapp?activeTab=readme",
+    //         },
+    //     ],
+    //     tech: [
+    //         ToolName.NPM,
+    //         LanguageName.JAVASCRIPT,
+    //         ChainName.TEZOS,
+    //     ],
+    //     image: "/projects/create-tez-dapp.png",
+    // },
     // {
     //     title: "Flow Sign",
     //     completedTime: new Date("2023-10-03"),

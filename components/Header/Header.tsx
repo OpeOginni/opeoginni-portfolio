@@ -24,57 +24,53 @@ const MobileHeaderNavLinks: NavLinks[] = [
 
 export default async function Header() {
   return (
-    <div className="px-4 py-3 md:px-8 md:py-4 flex flex-row justify-between text-center items-center overflow-hidden bg-gradient-to-r from-slate-50 to-gray-50 sticky top-0 backdrop-blur-md z-50 border-b border-gray-200/50 shadow-sm">
-      <div>
+    <div className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur-md">
+      <div className="mx-auto flex max-w-5xl flex-row justify-between items-center px-4 py-3 md:px-6 md:py-4">
+        <div>
         <Link
           href={"/"}
-          className="text-lg md:text-2xl font-extrabold md:pl-4 hover:text-indigo-500 hover:cursor-pointer"
+          className="text-lg md:text-2xl font-semibold tracking-tight md:pl-0 hover:text-slate-900 hover:cursor-pointer text-slate-900"
         >
           OpeOginni
         </Link>
-      </div>
-      <div className="md:hidden grid grid-cols-3 gap-1 items-center">
+        </div>
+      <div className="md:hidden flex items-center gap-2">
         {MobileHeaderNavLinks.map((MobileHeaderNavLink) => {
           return (
             <div
               key={MobileHeaderNavLink.key}
               className="text-xs font-medium"
             >
-              <Link href={MobileHeaderNavLink.link}>
+              <Link
+                href={MobileHeaderNavLink.link}
+                className="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors"
+              >
                 {MobileHeaderNavLink.name}
               </Link>
             </div>
           );
         })}
       </div>
-      <div className="hidden md:grid grid-cols-5 gap-4 items-center">
+        <div className="hidden md:flex items-center gap-3">
         {HeaderNavLinks.map((HeaderNavLink) => {
           return (
             <div key={HeaderNavLink.key} className="text-sm font-medium">
-              <Link 
+              <Link
                 href={HeaderNavLink.link}
-                className={`${
-                  HeaderNavLink.name === "Projects"
-                    ? "relative flex items-center justify-center text-sm font-medium"
-                    : ""
-                }`}
+                className={cn(
+                  "relative px-3 py-1.5 rounded-full text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors",
+                  HeaderNavLink.name === "Projects" && "text-slate-900"
+                )}
               >
                 {HeaderNavLink.name === "Projects" && (
-                  <span className="absolute flex bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] animate-[textAnimation_5s_ease_infinite]">
-                    {HeaderNavLink.name}
-                  </span>
+                  <span className="pointer-events-none absolute inset-x-2 -bottom-1 h-[2px] rounded-full bg-slate-900/70" />
                 )}
-                <span className={`${
-                  HeaderNavLink.name === "Projects"
-                    ? "relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 [-webkit-background-clip:text] [background-clip:text] [-webkit-text-fill-color:transparent] animate-[textAnimation_5s_ease_infinite]"
-                    : ""
-                }`}>
-                  {HeaderNavLink.name}
-                </span>
+                <span className="relative z-10">{HeaderNavLink.name}</span>
               </Link>
             </div>
           );
         })}
+        </div>
       </div>
     </div>
   );

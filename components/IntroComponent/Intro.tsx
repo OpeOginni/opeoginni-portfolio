@@ -8,24 +8,22 @@ export default function IntroComponent() {
       <div className="h-max">
         <div className="w-full md:w-[60%] pb-6 md:pb-5">
           <div>
-            <h1 className="text-[#5E17EB] text-sm md:text-xs pb-3 md:pb-2">Hey I&apos;m</h1>
+            <h1 className="text-blue-600 text-sm md:text-xs pb-3 md:pb-2 font-medium">Hey I&apos;m</h1>
           </div>
-          <h1 className="text-4xl md:text-3xl lg:text-6xl pb-4 md:pb-4 font-bold leading-tight">
+          <h1 className="text-4xl md:text-3xl lg:text-6xl pb-4 md:pb-4 font-bold leading-tight text-gray-900">
             Opeyemi <br />
-            <span className="text-xl md:text-2xl">a{" "}</span>Software Developer
+            <span className="text-xl md:text-2xl">a </span>Software Developer
           </h1>
-          <p className="text-base md:text-s pb-4 md:pb-2 leading-relaxed">
-            A versatile software developer passionate about building 
-            efficient solutions using the right tools for each challenge. 
-            Always eager to tackle new problems and learn emerging technologies. Always love to fix bugs.
+          <p className="text-base md:text-sm pb-4 md:pb-2 leading-relaxed text-gray-600">
+            I build efficient solutions with the right tools. Check out my work below.
           </p>
         </div>
-        <div className="py-6 md:py-12">
+        <div className="py-4 md:py-6">
             <Link
               href={"/#projects"}
-              className="inline-flex items-center gap-2 py-3 px-6 md:py-2 md:px-4 border rounded-lg bg-[#5E17EB] text-white hover:bg-[#4C1D95] transition-colors duration-300 text-base md:text-sm"
+              className="inline-flex items-center gap-2 py-3 px-6 md:py-2 md:px-4 border border-blue-600 rounded-lg bg-blue-600 text-white hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 text-base md:text-sm font-medium"
             >
-              My Projects <MoveRightIcon className="w-4 h-4" />
+              View Projects <MoveRightIcon className="w-4 h-4" />
             </Link>
         </div>
       </div>

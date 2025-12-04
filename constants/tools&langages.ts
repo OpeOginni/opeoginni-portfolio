@@ -25,7 +25,8 @@ export enum ToolName {
   CONVEX = "convex",
   OPEN_ROUTER="open_router",
   GEMINI="gemini",
-  POLAR="polar"
+  POLAR="polar",
+  QWEN="qwen"
 }
 
 export enum LanguageName {
@@ -132,7 +133,7 @@ function getDisplayName(name: string): string {
     flask: "Flask",
     npm: "NPM",
     railway: "Railway",
-    cloudformation: "CloudFormation - Yaml",
+    cloudformation: "CloudFormation",
     html: "HTML",
     css3: "CSS",
     typescript: "TypeScript",
@@ -152,7 +153,8 @@ function getDisplayName(name: string): string {
     convex: "Convex",
     open_router: "Open Router",
     gemini: "Google Gemini",
-    polar: "Polar"
+    polar: "Polar",
+    qwen: "Qwen"
   };
 
   return displayNames[name] || name;
