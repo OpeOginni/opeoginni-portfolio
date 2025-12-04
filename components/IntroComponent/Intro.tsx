@@ -8,7 +8,7 @@ export default function IntroComponent() {
       <div className="h-max">
         <div className="w-full md:w-[60%] pb-6 md:pb-5">
           <div>
-            <h1 className="text-blue-600 text-sm md:text-xs pb-3 md:pb-2 font-medium">Hey I'm</h1>
+            <h1 className="text-blue-600 text-sm md:text-xs pb-3 md:pb-2 font-medium">Hey I&apos;m</h1>
           </div>
           <h1 className="text-4xl md:text-3xl lg:text-6xl pb-4 md:pb-4 font-bold leading-tight text-gray-900">
             Opeyemi <br />
