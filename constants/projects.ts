@@ -85,7 +85,7 @@ export const myProjects: Projects[] = [
     title: "My Contxt",
     completedTime: new Date("2025-08-20"),
     shortDescription: "AI Tooling | SaaS",
-    description: "Application that enables users of multiple chatbots to manage cntexts of their conversations, giving them the ability to export context that are simplified for use in other chatbots, or even for IDE agents, or Faq's and much more.",
+    description: "Application that enables users of multiple chatbots to manage contexts of their conversations, giving them the ability to export context that are simplified for use in other chatbots, or even for IDE agents, or Faq's and much more.",
     link: [
         {
             linkTitle: "App",
