@@ -16,9 +16,12 @@ export default function SkillsComponent() {
   const myCerts = getMyCerts();
 
   return (
-    <section id="skills&certs" className="w-full px-4 md:max-w-[75%] md:mx-auto border-b border-[hsl(207,4%,16%)] py-6 md:py-5 pb-8 md:pb-14">
+    <section
+      id="skills&certs"
+      className="w-full px-4 md:max-w-[75%] md:mx-auto border-b border-neutral-200 dark:border-neutral-800 py-6 md:py-5 pb-8 md:pb-14"
+    >
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold py-6 md:py-7 text-center">
+        <h1 className="text-2xl md:text-3xl font-bold py-6 md:py-7 text-center text-neutral-900 dark:text-neutral-50">
           Skills & Certifications
         </h1>
       </div>
@@ -27,7 +30,7 @@ export default function SkillsComponent() {
           <div>
             <div className="w-full">
               <div className="pb-4 md:pb-2 lg:pb-5">
-                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
+                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center text-neutral-800 dark:text-neutral-200">
                   <HiOutlineCode />
                   <span className="px-4">Languages</span>
                 </h1>
@@ -38,6 +41,7 @@ export default function SkillsComponent() {
                     <ToolsAndLanguages
                       key={language.toolName}
                       imageLocation={language.imageLocation}
+                      hasDark={language.hasDark}
                       toolName={language.toolName}
                     />
                   );
@@ -49,7 +53,7 @@ export default function SkillsComponent() {
             <div>
               <div className="w-full">
                 <div className="pb-4 md:pb-2 lg:pb-5">
-                  <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
+                  <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center text-neutral-800 dark:text-neutral-200">
                     <LiaToolsSolid />
                     <span className="px-4">Frameworks / Tools</span>
                   </h1>
@@ -60,6 +64,7 @@ export default function SkillsComponent() {
                       <ToolsAndLanguages
                         key={tool.toolName}
                         imageLocation={tool.imageLocation}
+                        hasDark={tool.hasDark}
                         toolName={tool.toolName}
                       />
                     );
@@ -71,7 +76,7 @@ export default function SkillsComponent() {
           <div>
             <div className="w-full">
               <div className="pb-4 md:pb-2 lg:pb-5">
-                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
+                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center text-neutral-800 dark:text-neutral-200">
                   <AiOutlineCloud />
                   <span className="px-4">Cloud</span>
                 </h1>
@@ -82,6 +87,7 @@ export default function SkillsComponent() {
                     <ToolsAndLanguages
                       key={cloud.toolName}
                       imageLocation={cloud.imageLocation}
+                      hasDark={cloud.hasDark}
                       toolName={cloud.toolName}
                     />
                   );
@@ -91,13 +97,13 @@ export default function SkillsComponent() {
           </div>
           <div className="w-full">
             <div className="pb-4 md:pb-2 lg:pb-5">
-              <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
+              <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center text-neutral-800 dark:text-neutral-200">
                 <HiOutlineDocumentText />
                 <span className="px-4">Certifications</span>
               </h1>
             </div>
             {myCerts.length < 1 ? (
-              <div className="text-center text-base font-bold">
+              <div className="text-center text-base font-bold text-neutral-500">
                 Working on Bagging Certs...
               </div>
             ) : (
@@ -107,6 +113,7 @@ export default function SkillsComponent() {
                     <ToolsAndLanguages
                       key={certs.toolName}
                       imageLocation={certs.imageLocation}
+                      hasDark={certs.hasDark}
                       toolName={certs.toolName}
                       link={certs.link}
                     />

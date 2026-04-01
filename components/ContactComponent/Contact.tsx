@@ -3,7 +3,10 @@ import Contacts from "./ContactObject";
 
 export default function ContactComponent() {
   return (
-    <section id="contact" className="flex w-full px-4 md:max-w-[75%] md:mx-auto py-6 md:py-5 items-center justify-center border-t border-[hsl(207,4%,16%)]">
+    <section
+      id="contact"
+      className="flex w-full px-4 md:max-w-[75%] md:mx-auto py-6 md:py-5 items-center justify-center border-t border-neutral-200 dark:border-neutral-800"
+    >
       <div className="w-full md:w-[40%]">
         <div className="flex flex-wrap justify-center md:grid md:grid-cols-4 gap-4 md:gap-3">
           {myContactDetails.map((contractDetails) => {

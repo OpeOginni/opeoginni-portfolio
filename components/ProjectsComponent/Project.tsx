@@ -1,16 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
-import { Separator } from "@/components/ui/separator";
 import TechUsed from "./TechUsed";
-import { 
-    ToolName, 
-    LanguageName, 
-    CloudName, 
-    ChainName,
-    getTool,
-    getLanguage,
-    getCloud,
-    getChain
+import {
+  ToolName,
+  LanguageName,
+  CloudName,
+  ChainName,
+  getTool,
+  getLanguage,
+  getCloud,
+  getChain,
 } from "@/constants/tools&langages";
 import { ProjectLink } from "@/constants/projects";
 import Link from "next/link";
@@ -34,20 +33,22 @@ interface LinksProps {
   links: ProjectLink[];
 }
 
-const getTechDetails = (techName: ToolName | LanguageName | CloudName | ChainName) => {
-    if (Object.values(ToolName).includes(techName as ToolName)) {
-        return getTool(techName as ToolName);
-    }
-    if (Object.values(LanguageName).includes(techName as LanguageName)) {
-        return getLanguage(techName as LanguageName);
-    }
-    if (Object.values(CloudName).includes(techName as CloudName)) {
-        return getCloud(techName as CloudName);
-    }
-    if (Object.values(ChainName).includes(techName as ChainName)) {
-        return getChain(techName as ChainName);
-    }
-    throw new Error(`Unknown tech: ${techName}`);
+const getTechDetails = (
+  techName: ToolName | LanguageName | CloudName | ChainName
+) => {
+  if (Object.values(ToolName).includes(techName as ToolName)) {
+    return getTool(techName as ToolName);
+  }
+  if (Object.values(LanguageName).includes(techName as LanguageName)) {
+    return getLanguage(techName as LanguageName);
+  }
+  if (Object.values(CloudName).includes(techName as CloudName)) {
+    return getCloud(techName as CloudName);
+  }
+  if (Object.values(ChainName).includes(techName as ChainName)) {
+    return getChain(techName as ChainName);
+  }
+  throw new Error(`Unknown tech: ${techName}`);
 };
 
 export const Project = ({
@@ -61,13 +62,14 @@ export const Project = ({
   image,
 }: Props) => {
   return (
-    <div className={cn(
-      "w-full py-8 md:py-14",
-      !lastProject && "border-b border-gray-200"
-    )}>
-      {/* Mobile Layout - Consistent pattern */}
+    <div
+      className={cn(
+        "w-full py-8 md:py-14",
+        !lastProject && "border-b border-neutral-200 dark:border-neutral-800"
+      )}
+    >
+      {/* Mobile Layout */}
       <div className="lg:hidden space-y-6">
-        {/* Image always first on mobile */}
         <div className="max-h-[250px] hover:cursor-pointer">
           <Dialog>
             <DialogTrigger asChild>
@@ -78,11 +80,14 @@ export const Project = ({
                   height={400}
                   src={image}
                   className="w-full h-full object-contain rounded-lg"
-                  style={{ maxHeight: '250px' }}
+                  style={{ maxHeight: "250px" }}
                 />
               </button>
             </DialogTrigger>
-            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
+            <DialogContent
+              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
+              title={title}
+            >
               <Image
                 alt={`${title} screenshot (full view)`}
                 width={1200}
@@ -94,16 +99,17 @@ export const Project = ({
             </DialogContent>
           </Dialog>
         </div>
-        
-        {/* Content always second on mobile */}
+
         <div>
           <div id="headers" className="pb-4 space-y-2">
-            <h2 className="font-bold text-xl text-gray-900">{title}</h2>
-            <p className="font-medium text-sm text-gray-500">
+            <h2 className="font-bold text-xl text-neutral-900 dark:text-neutral-50">
+              {title}
+            </h2>
+            <p className="font-medium text-sm text-neutral-500 dark:text-neutral-400">
               {shortDescription}
             </p>
           </div>
-          <p className="text-gray-700 py-4 text-sm leading-relaxed">
+          <p className="text-neutral-700 dark:text-neutral-300 py-4 text-sm leading-relaxed">
             {description}
           </p>
           <div className="pb-4">
@@ -111,18 +117,22 @@ export const Project = ({
           </div>
           <div className="grid grid-cols-8 gap-2 pb-4">
             {tech.map((techName) => {
-                const techDetails = getTechDetails(techName);
-                return (
-                    <TechUsed
-                        key={techDetails.toolName}
-                        logoLocation={techDetails.imageLocation}
-                        techName={techDetails.toolName}
-                    />
-                );
+              const techDetails = getTechDetails(techName);
+              return (
+                <TechUsed
+                  key={techDetails.toolName}
+                  logoLocation={techDetails.imageLocation}
+                  hasDark={techDetails.hasDark}
+                  techName={techDetails.toolName}
+                />
+              );
             })}
           </div>
 
-          <div id="date" className="text-sm text-gray-500">
+          <div
+            id="date"
+            className="text-sm text-neutral-500 dark:text-neutral-400"
+          >
             {completedTime.toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -131,16 +141,18 @@ export const Project = ({
         </div>
       </div>
 
-      {/* Desktop Layout - Alternating pattern */}
+      {/* Desktop Layout */}
       <div className="hidden lg:grid lg:grid-cols-2 lg:gap-8">
         <div className="order-2 lg:order-1 flex flex-col">
           <div id="headers" className="pb-5 space-y-2">
-            <h2 className="font-bold text-2xl text-gray-900">{title}</h2>
-            <p className="font-medium text-base text-gray-500">
+            <h2 className="font-bold text-2xl text-neutral-900 dark:text-neutral-50">
+              {title}
+            </h2>
+            <p className="font-medium text-base text-neutral-500 dark:text-neutral-400">
               {shortDescription}
             </p>
           </div>
-          <p className="text-gray-700 pb-6 text-base leading-relaxed">
+          <p className="text-neutral-700 dark:text-neutral-300 pb-6 text-base leading-relaxed">
             {description}
           </p>
           <div className="pb-5">
@@ -148,18 +160,22 @@ export const Project = ({
           </div>
           <div className="grid grid-cols-10 gap-3 pb-5">
             {tech.map((techName) => {
-                const techDetails = getTechDetails(techName);
-                return (
-                    <TechUsed
-                        key={techDetails.toolName}
-                        logoLocation={techDetails.imageLocation}
-                        techName={techDetails.toolName}
-                    />
-                );
+              const techDetails = getTechDetails(techName);
+              return (
+                <TechUsed
+                  key={techDetails.toolName}
+                  logoLocation={techDetails.imageLocation}
+                  hasDark={techDetails.hasDark}
+                  techName={techDetails.toolName}
+                />
+              );
             })}
           </div>
 
-          <div id="date" className="text-sm text-gray-500 mt-auto">
+          <div
+            id="date"
+            className="text-sm text-neutral-500 dark:text-neutral-400 mt-auto"
+          >
             {completedTime.toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -179,19 +195,22 @@ export const Project = ({
                   height={400}
                   src={image}
                   className="w-full h-full object-contain rounded-xl transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                  style={{ maxHeight: '400px' }}
+                  style={{ maxHeight: "400px" }}
                 />
               </button>
             </DialogTrigger>
-            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
-            <Image
+            <DialogContent
+              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
+              title={title}
+            >
+              <Image
                 alt={`${title} screenshot (full view)`}
                 width={1920}
                 height={1080}
                 src={image}
                 sizes="100vw"
                 className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
-            />
+              />
             </DialogContent>
           </Dialog>
         </div>
@@ -211,28 +230,32 @@ export const ProjectInverted = ({
   lastProject = false,
 }: Props) => {
   return (
-    <div className={cn(
-      "w-full py-8 md:py-14",
-      !lastProject && "border-b border-gray-200"
-    )}>
-      {/* Mobile Layout - Same consistent pattern as Project */}
+    <div
+      className={cn(
+        "w-full py-8 md:py-14",
+        !lastProject && "border-b border-neutral-200 dark:border-neutral-800"
+      )}
+    >
+      {/* Mobile Layout */}
       <div className="lg:hidden space-y-6">
-        {/* Image always first on mobile */}
         <div className="max-h-[250px] hover:cursor-pointer">
           <Dialog>
             <DialogTrigger asChild>
               <button aria-label={`Open ${title} image`} className="w-full">
-            <Image
+                <Image
                   alt={`${title} screenshot`}
-              width={758}
-              height={400}
-              src={image}
+                  width={758}
+                  height={400}
+                  src={image}
                   className="w-full h-full object-contain rounded-lg"
-              style={{ maxHeight: '250px' }}
-            />
+                  style={{ maxHeight: "250px" }}
+                />
               </button>
             </DialogTrigger>
-            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
+            <DialogContent
+              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
+              title={title}
+            >
               <Image
                 alt={`${title} screenshot (full view)`}
                 width={1200}
@@ -244,16 +267,17 @@ export const ProjectInverted = ({
             </DialogContent>
           </Dialog>
         </div>
-        
-        {/* Content always second on mobile */}
+
         <div>
           <div id="headers" className="pb-4 space-y-2">
-            <h2 className="font-bold text-xl text-gray-900">{title}</h2>
-            <p className="font-medium text-sm text-gray-500">
+            <h2 className="font-bold text-xl text-neutral-900 dark:text-neutral-50">
+              {title}
+            </h2>
+            <p className="font-medium text-sm text-neutral-500 dark:text-neutral-400">
               {shortDescription}
             </p>
           </div>
-          <p className="text-gray-700 py-4 text-sm leading-relaxed">
+          <p className="text-neutral-700 dark:text-neutral-300 py-4 text-sm leading-relaxed">
             {description}
           </p>
           <div className="pb-4">
@@ -261,18 +285,22 @@ export const ProjectInverted = ({
           </div>
           <div className="grid grid-cols-8 gap-2 pb-4">
             {tech.map((techName) => {
-                const techDetails = getTechDetails(techName);
-                return (
-                    <TechUsed
-                        key={techDetails.toolName}
-                        logoLocation={techDetails.imageLocation}
-                        techName={techDetails.toolName}
-                    />
-                );
+              const techDetails = getTechDetails(techName);
+              return (
+                <TechUsed
+                  key={techDetails.toolName}
+                  logoLocation={techDetails.imageLocation}
+                  hasDark={techDetails.hasDark}
+                  techName={techDetails.toolName}
+                />
+              );
             })}
           </div>
 
-          <div id="date" className="text-sm text-gray-500">
+          <div
+            id="date"
+            className="text-sm text-neutral-500 dark:text-neutral-400"
+          >
             {completedTime.toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -281,7 +309,7 @@ export const ProjectInverted = ({
         </div>
       </div>
 
-      {/* Desktop Layout - Inverted pattern */}
+      {/* Desktop Layout - Inverted */}
       <div className="hidden lg:grid lg:grid-cols-2 lg:gap-8">
         <div className="order-1 max-h-[400px] hover:cursor-pointer group">
           <Dialog>
@@ -296,11 +324,14 @@ export const ProjectInverted = ({
                   height={400}
                   src={image}
                   className="w-full h-full object-contain rounded-xl transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                  style={{ maxHeight: '400px' }}
+                  style={{ maxHeight: "400px" }}
                 />
               </button>
             </DialogTrigger>
-            <DialogContent className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden" title={title}>
+            <DialogContent
+              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
+              title={title}
+            >
               <Image
                 alt={`${title} screenshot (full view)`}
                 width={1920}
@@ -315,12 +346,14 @@ export const ProjectInverted = ({
 
         <div className="order-2 flex flex-col">
           <div id="headers" className="pb-5 space-y-2">
-            <h2 className="font-bold text-2xl text-gray-900">{title}</h2>
-            <p className="font-medium text-base text-gray-500">
+            <h2 className="font-bold text-2xl text-neutral-900 dark:text-neutral-50">
+              {title}
+            </h2>
+            <p className="font-medium text-base text-neutral-500 dark:text-neutral-400">
               {shortDescription}
             </p>
           </div>
-          <p className="text-gray-700 pb-6 text-base leading-relaxed">
+          <p className="text-neutral-700 dark:text-neutral-300 pb-6 text-base leading-relaxed">
             {description}
           </p>
           <div className="pb-5">
@@ -328,18 +361,22 @@ export const ProjectInverted = ({
           </div>
           <div className="grid grid-cols-10 gap-3 pb-5">
             {tech.map((techName) => {
-                const techDetails = getTechDetails(techName);
-                return (
-                    <TechUsed
-                        key={techDetails.toolName}
-                        logoLocation={techDetails.imageLocation}
-                        techName={techDetails.toolName}
-                    />
-                );
+              const techDetails = getTechDetails(techName);
+              return (
+                <TechUsed
+                  key={techDetails.toolName}
+                  logoLocation={techDetails.imageLocation}
+                  hasDark={techDetails.hasDark}
+                  techName={techDetails.toolName}
+                />
+              );
             })}
           </div>
 
-          <div id="date" className="text-sm text-gray-500 mt-auto">
+          <div
+            id="date"
+            className="text-sm text-neutral-500 dark:text-neutral-400 mt-auto"
+          >
             {completedTime.toLocaleDateString("en-US", {
               year: "numeric",
               month: "short",
@@ -354,30 +391,37 @@ export const ProjectInverted = ({
 export const EmptyProject = () => {
   return (
     <div className="flex items-center justify-center w-full py-8 md:py-14 min-h-[50vh]">
-      <div className="flex flex-col items-center justify-center text-gray-400">
+      <div className="flex flex-col items-center justify-center text-neutral-400 dark:text-neutral-600">
         <GhostIcon className="w-10 h-10 mb-2" />
         <h2 className="text-lg font-bold">No Projects Found (YET)</h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const ProjectLinksComp = ({ links }: LinksProps) => {
   return (
     <div
       id="links"
-      className="flex flex-wrap gap-3 md:flex-nowrap md:items-center text-sm text-blue-600"
+      className="flex flex-wrap gap-3 md:flex-nowrap md:items-center text-sm text-blue-600 dark:text-blue-400"
     >
       {links.map((link, index) => {
         return (
           <Fragment key={link.linkTitle}>
-              <div key={link.linkTitle}>
-              <Link href={link.link} target="blank" className="hover:text-blue-700 transition-colors font-medium">
-                  {link.linkTitle}
-                </Link>
-              </div>
+            <div key={link.linkTitle}>
+              <Link
+                href={link.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium"
+              >
+                {link.linkTitle}
+              </Link>
+            </div>
             {index < links.length - 1 && (
-              <div className="text-gray-300 select-none">|</div>
+              <div className="text-neutral-300 dark:text-neutral-600 select-none">
+                |
+              </div>
             )}
           </Fragment>
         );
