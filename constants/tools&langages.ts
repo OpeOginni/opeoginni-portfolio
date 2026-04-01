@@ -55,36 +55,54 @@ export enum ChainName {
 
 export interface Tool {
   imageLocation: string;
+  hasDark: boolean;
   toolName: string;
   link?: string;
 }
 
 export interface Language {
   imageLocation: string;
+  hasDark: boolean;
   toolName: string;
 }
 
 export interface Cloud {
   imageLocation: string;
+  hasDark: boolean;
   toolName: string;
 }
 
 export interface Chain {
   imageLocation: string;
+  hasDark: boolean;
   toolName: string;
 }
 
 export interface Cert {
   imageLocation: string;
+  hasDark: boolean;
   toolName: string;
   link: string;
 }
+
+/** Icons that have a `_dark` variant in the same directory. */
+const HAS_DARK = new Set<string>([
+  "expressjs",
+  "flask",
+  "open_router",
+  "socket_io",
+  "railway",
+  "aws",
+  "nextjs",
+  "prisma"
+]);
 
 // Utility function to get tool details
 export const getTool = (name: ToolName): Tool => {
   return {
     imageLocation: `/tools/${name}.svg`,
-    toolName: getDisplayName(name)
+    hasDark: HAS_DARK.has(name),
+    toolName: getDisplayName(name),
   };
 };
 
@@ -92,7 +110,8 @@ export const getTool = (name: ToolName): Tool => {
 export const getLanguage = (name: LanguageName): Language => {
   return {
     imageLocation: `/languages/${name}.svg`,
-    toolName: getDisplayName(name)
+    hasDark: HAS_DARK.has(name),
+    toolName: getDisplayName(name),
   };
 };
 
@@ -100,7 +119,8 @@ export const getLanguage = (name: LanguageName): Language => {
 export const getCloud = (name: CloudName): Cloud => {
   return {
     imageLocation: `/cloud/${name}.svg`,
-    toolName: getDisplayName(name)
+    hasDark: HAS_DARK.has(name),
+    toolName: getDisplayName(name),
   };
 };
 
@@ -108,7 +128,8 @@ export const getCloud = (name: CloudName): Cloud => {
 export const getChain = (name: ChainName): Chain => {
   return {
     imageLocation: `/chains/${name}.svg`,
-    toolName: getDisplayName(name)
+    hasDark: HAS_DARK.has(name),
+    toolName: getDisplayName(name),
   };
 };
 
@@ -154,10 +175,22 @@ function getDisplayName(name: string): string {
     open_router: "Open Router",
     gemini: "Google Gemini",
     polar: "Polar",
-    qwen: "Qwen"
+    qwen: "Qwen",
+    vercel: "Vercel",
+    auth_js: "Auth.js",
+    git: "Git",
   };
 
   return displayNames[name] || name;
+}
+
+/**
+ * Derive the dark variant path from a light image path.
+ * `/tools/expressjs.svg` -> `/tools/expressjs_dark.svg`
+ */
+export function getDarkImageLocation(imageLocation: string): string {
+  const dotIndex = imageLocation.lastIndexOf(".");
+  return `${imageLocation.slice(0, dotIndex)}_dark${imageLocation.slice(dotIndex)}`;
 }
 
 export const getMyTools = (): Tool[] => [
@@ -187,13 +220,14 @@ export const getMyCloud = (): Cloud[] => [
 export const getMyCerts = (): Cert[] => [
   {
     imageLocation: "/certs/aws-certified-cloud-practitioner.png",
+    hasDark: false,
     toolName: "Cloud Practitioner",
     link: "https://www.credly.com/badges/96f201e3-7e27-44c8-8411-0254e632e695/public_url"
   },
   {
     imageLocation: "/certs/aws-cloud-project-bootcamp.svg",
+    hasDark: false,
     toolName: "Cloud Project Bootcamp (Red Squad)",
     link: "https://app.exampro.co/student/achievements/validate/certificate/qegVh4xSQIeABWes-kIkmQf19f"
   }
 ];
-

@@ -1,6 +1,3 @@
-import { HiOutlineCode, HiOutlineDocumentText } from "react-icons/hi";
-import { LiaToolsSolid } from "react-icons/lia";
-import { AiOutlineCloud } from "react-icons/ai";
 import ToolsAndLanguages from "./ToolsAndLanguages";
 import {
   getMyLanguages,
@@ -16,105 +13,85 @@ export default function SkillsComponent() {
   const myCerts = getMyCerts();
 
   return (
-    <section id="skills&certs" className="w-full px-4 md:max-w-[75%] md:mx-auto border-b border-[hsl(207,4%,16%)] py-6 md:py-5 pb-8 md:pb-14">
+    <section
+      id="skills&certs"
+      className="w-full px-4 md:max-w-[75%] md:mx-auto border-b border-neutral-200 dark:border-neutral-800 py-10 md:py-12"
+    >
       <div>
-        <h1 className="text-2xl md:text-3xl font-bold py-6 md:py-7 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold pb-8 md:pb-10 text-center text-neutral-900 dark:text-neutral-50">
           Skills & Certifications
-        </h1>
+        </h2>
       </div>
-      <div className="h-max">
-        <div className="grid grid-cols-1 gap-8 md:gap-14 lg:grid-cols-2 lg:gap-3">
-          <div>
-            <div className="w-full">
-              <div className="pb-4 md:pb-2 lg:pb-5">
-                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
-                  <HiOutlineCode />
-                  <span className="px-4">Languages</span>
-                </h1>
-              </div>
-              <div className="grid grid-cols-3 gap-2 md:gap-3 pb-3">
-                {myLanguages.map((language) => {
-                  return (
-                    <ToolsAndLanguages
-                      key={language.toolName}
-                      imageLocation={language.imageLocation}
-                      toolName={language.toolName}
-                    />
-                  );
-                })}
-              </div>
-            </div>
+      <div className="grid grid-cols-1 gap-10 md:gap-12 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10">
+        <div>
+          <h3 className="text-sm font-semibold tracking-wide uppercase text-neutral-400 dark:text-neutral-500 mb-5 text-center">
+            Languages
+          </h3>
+          <div className="grid grid-cols-3 gap-x-2 gap-y-1">
+            {myLanguages.map((language) => (
+              <ToolsAndLanguages
+                key={language.toolName}
+                imageLocation={language.imageLocation}
+                hasDark={language.hasDark}
+                toolName={language.toolName}
+              />
+            ))}
           </div>
-          <div>
-            <div>
-              <div className="w-full">
-                <div className="pb-4 md:pb-2 lg:pb-5">
-                  <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
-                    <LiaToolsSolid />
-                    <span className="px-4">Frameworks / Tools</span>
-                  </h1>
-                </div>
-                <div className="grid grid-cols-3 gap-2 md:gap-3 pb-3">
-                  {myTools.map((tool) => {
-                    return (
-                      <ToolsAndLanguages
-                        key={tool.toolName}
-                        imageLocation={tool.imageLocation}
-                        toolName={tool.toolName}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold tracking-wide uppercase text-neutral-400 dark:text-neutral-500 mb-5 text-center">
+            Frameworks / Tools
+          </h3>
+          <div className="grid grid-cols-3 gap-x-2 gap-y-1">
+            {myTools.map((tool) => (
+              <ToolsAndLanguages
+                key={tool.toolName}
+                imageLocation={tool.imageLocation}
+                hasDark={tool.hasDark}
+                toolName={tool.toolName}
+              />
+            ))}
           </div>
-          <div>
-            <div className="w-full">
-              <div className="pb-4 md:pb-2 lg:pb-5">
-                <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
-                  <AiOutlineCloud />
-                  <span className="px-4">Cloud</span>
-                </h1>
-              </div>
-              <div className="grid grid-cols-2 gap-2 md:gap-3">
-                {myCloud.map((cloud) => {
-                  return (
-                    <ToolsAndLanguages
-                      key={cloud.toolName}
-                      imageLocation={cloud.imageLocation}
-                      toolName={cloud.toolName}
-                    />
-                  );
-                })}
-              </div>
-            </div>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold tracking-wide uppercase text-neutral-400 dark:text-neutral-500 mb-5 text-center">
+            Cloud
+          </h3>
+          <div className="grid grid-cols-2 gap-x-2 gap-y-1">
+            {myCloud.map((cloud) => (
+              <ToolsAndLanguages
+                key={cloud.toolName}
+                imageLocation={cloud.imageLocation}
+                hasDark={cloud.hasDark}
+                toolName={cloud.toolName}
+              />
+            ))}
           </div>
-          <div className="w-full">
-            <div className="pb-4 md:pb-2 lg:pb-5">
-              <h1 className="text-lg md:text-xl pb-2 font-semibold text-center flex items-center justify-center">
-                <HiOutlineDocumentText />
-                <span className="px-4">Certifications</span>
-              </h1>
+        </div>
+
+        <div>
+          <h3 className="text-sm font-semibold tracking-wide uppercase text-neutral-400 dark:text-neutral-500 mb-5 text-center">
+            Certifications
+          </h3>
+          {myCerts.length < 1 ? (
+            <div className="text-center text-sm text-neutral-500">
+              Working on Bagging Certs...
             </div>
-            {myCerts.length < 1 ? (
-              <div className="text-center text-base font-bold">
-                Working on Bagging Certs...
-              </div>
-            ) : (
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 text-sm md:text-xs">
-                {myCerts.map((certs) => {
-                  return (
-                    <ToolsAndLanguages
-                      key={certs.toolName}
-                      imageLocation={certs.imageLocation}
-                      toolName={certs.toolName}
-                      link={certs.link}
-                    />
-                  );
-                })}
-              </div>
-            )}
-          </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-2 gap-y-1">
+              {myCerts.map((certs) => (
+                <ToolsAndLanguages
+                  key={certs.toolName}
+                  imageLocation={certs.imageLocation}
+                  hasDark={certs.hasDark}
+                  toolName={certs.toolName}
+                  link={certs.link}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 import Header from "@/components/Header/Header";
 import ContactComponent from "@/components/ContactComponent/Contact";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 import "./globals.css";
 import type { Metadata } from "next";
@@ -38,11 +39,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} min-w-0 w-full`}>
-        <Header/>
-        {children}
-        <ContactComponent />
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.className} min-w-0 w-full bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50`}
+      >
+        <ThemeProvider>
+          <Header />
+          {children}
+          <ContactComponent />
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

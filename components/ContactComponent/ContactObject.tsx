@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import { FiGithub, FiX } from "react-icons/fi";
+import { FiGithub } from "react-icons/fi";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { HiOutlineMail } from "react-icons/hi";
 import Link from "next/link";
@@ -11,46 +10,26 @@ interface Props {
   medium: string;
 }
 
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  github: FiGithub,
+  linkedin: TbBrandLinkedin,
+  email: HiOutlineMail,
+  x: FaXTwitter,
+};
+
 export default function Contacts({ name, link, medium }: Props) {
-  if (medium === "github") {
-    return (
-      <div className="flex justify-center items-center text-xl leading-7">
-        <span>
-          <Link href={link}>
-            <FiGithub />
-          </Link>
-        </span>
-      </div>
-    );
-  } else if (medium === "linkedin") {
-    return (
-      <div className="flex justify-center items-center text-xl leading-7">
-        <span>
-          <Link href={link}>
-            <TbBrandLinkedin />
-          </Link>
-        </span>
-      </div>
-    );
-  } else if (medium === "email") {
-    return (
-      <div className="flex justify-center items-center text-xl leading-7">
-        <span>
-          <Link href={link}>
-            <HiOutlineMail />
-          </Link>
-        </span>
-      </div>
-    );
-  } else if (medium === "x") {
-    return (
-      <div className="flex justify-center items-center text-xl leading-7">
-        <span>
-          <Link href={link}>
-            <FaXTwitter />
-          </Link>
-        </span>
-      </div>
-    );
-  }
+  const Icon = iconMap[medium];
+  if (!Icon) return null;
+
+  return (
+    <Link
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={name}
+      className="flex items-center justify-center w-9 h-9 rounded-full text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+    >
+      <Icon className="text-[18px]" />
+    </Link>
+  );
 }
