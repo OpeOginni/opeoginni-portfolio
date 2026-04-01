@@ -104,10 +104,10 @@ export const myProjects: Projects[] = [
     image: "/projects/mycontxt.png"
     },
     {
-    title: "Redmond Consultants App",
+    title: "Redmond Language App",
     completedTime: new Date("2025-07-03"),
     shortDescription: "Langugage Learning",
-    description: "Enterprise-grade language learning platform serving corporate clients with AI-powered audio synthesis. Built with Next.js, featuring gamified learning modules, real-time progress tracking, and seamless ElevenLabs integration. Deployed on Railway with PostgreSQL and Docker orchestration.",
+    description: "Enterprise-grade language learning platform serving corporate clients with AI-powered audio synthesis. Built with Next.js, featuring gamified learning modules, real-time progress tracking, and seamless ElevenLabs integration. Deployed on Railway with PostgreSQL and Docker orchestration. Used by tax companies all over Germany and Europe.",
     link: [
         {
             linkTitle: "App",

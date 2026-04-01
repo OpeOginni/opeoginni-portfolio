@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { FiGithub } from "react-icons/fi";
 import { TbBrandLinkedin } from "react-icons/tb";
 import { HiOutlineMail } from "react-icons/hi";
@@ -23,18 +22,14 @@ export default function Contacts({ name, link, medium }: Props) {
   if (!Icon) return null;
 
   return (
-    <div className="flex justify-center items-center text-xl leading-7">
-      <span>
-        <Link
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={name}
-          className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 transition-colors"
-        >
-          <Icon />
-        </Link>
-      </span>
-    </div>
+    <Link
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={name}
+      className="flex items-center justify-center w-9 h-9 rounded-full text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
+    >
+      <Icon className="text-[18px]" />
+    </Link>
   );
 }

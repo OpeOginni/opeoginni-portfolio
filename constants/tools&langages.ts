@@ -94,6 +94,7 @@ const HAS_DARK = new Set<string>([
   "railway",
   "aws",
   "nextjs",
+  "prisma"
 ]);
 
 // Utility function to get tool details

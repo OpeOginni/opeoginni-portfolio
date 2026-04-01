@@ -15,7 +15,7 @@ import { ProjectLink } from "@/constants/projects";
 import Link from "next/link";
 import { Fragment } from "react";
 import { cn } from "@/lib/utils";
-import { GhostIcon } from "lucide-react";
+import { GhostIcon, ExternalLinkIcon } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 
 interface Props {
@@ -51,6 +51,123 @@ const getTechDetails = (
   throw new Error(`Unknown tech: ${techName}`);
 };
 
+/** Shared project image with lightbox dialog */
+function ProjectImage({ title, image, maxHeight = "400px" }: { title: string; image: string; maxHeight?: string }) {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <button
+          aria-label={`Open ${title} image`}
+          className="w-full rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 transition duration-300 ease-out lg:hover:shadow-xl lg:hover:shadow-neutral-900/5 dark:lg:hover:shadow-neutral-100/5 lg:hover:-translate-y-0.5 cursor-pointer"
+        >
+          <Image
+            alt={`${title} screenshot`}
+            width={758}
+            height={400}
+            src={image}
+            className="w-full h-full object-contain transition-transform duration-300 ease-out hover:scale-[1.01]"
+            style={{ maxHeight }}
+          />
+        </button>
+      </DialogTrigger>
+      <DialogContent
+        className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
+        title={title}
+      >
+        <Image
+          alt={`${title} screenshot (full view)`}
+          width={1920}
+          height={1080}
+          src={image}
+          sizes="100vw"
+          className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
+        />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+/** Shared project content block */
+function ProjectContent({
+  title,
+  completedTime,
+  shortDescription,
+  description,
+  links,
+  tech,
+  size = "desktop",
+}: {
+  title: string;
+  completedTime: Date;
+  shortDescription: string;
+  description: string;
+  links: ProjectLink[];
+  tech: (ToolName | LanguageName | CloudName | ChainName)[];
+  size?: "mobile" | "desktop";
+}) {
+  const isMobile = size === "mobile";
+
+  return (
+    <div className={cn("flex flex-col", !isMobile && "h-full")}>
+      <div className="space-y-1.5 pb-4">
+        <div className="flex items-baseline gap-3">
+          <h3
+            className={cn(
+              "font-bold text-neutral-900 dark:text-neutral-50",
+              isMobile ? "text-lg" : "text-xl"
+            )}
+          >
+            {title}
+          </h3>
+          <span className="text-xs text-neutral-400 dark:text-neutral-500 font-medium whitespace-nowrap">
+            {completedTime.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "short",
+            })}
+          </span>
+        </div>
+        <p
+          className={cn(
+            "font-medium text-neutral-500 dark:text-neutral-400",
+            isMobile ? "text-xs" : "text-sm"
+          )}
+        >
+          {shortDescription}
+        </p>
+      </div>
+
+      <p
+        className={cn(
+          "text-neutral-600 dark:text-neutral-300 leading-relaxed pb-5",
+          isMobile ? "text-sm" : "text-[15px]"
+        )}
+      >
+        {description}
+      </p>
+
+      <div className="pb-4">
+        <ProjectLinksComp links={links} />
+      </div>
+
+      <div
+        className="flex flex-wrap items-center gap-4 md:gap-5 mt-auto pt-1"
+      >
+        {tech.map((techName) => {
+          const techDetails = getTechDetails(techName);
+          return (
+            <TechUsed
+              key={techDetails.toolName}
+              logoLocation={techDetails.imageLocation}
+              hasDark={techDetails.hasDark}
+              techName={techDetails.toolName}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 export const Project = ({
   title,
   completedTime,
@@ -64,155 +181,39 @@ export const Project = ({
   return (
     <div
       className={cn(
-        "w-full py-8 md:py-14",
+        "w-full py-10 md:py-14",
         !lastProject && "border-b border-neutral-200 dark:border-neutral-800"
       )}
     >
       {/* Mobile Layout */}
-      <div className="lg:hidden space-y-6">
-        <div className="max-h-[250px] hover:cursor-pointer">
-          <Dialog>
-            <DialogTrigger asChild>
-              <button aria-label={`Open ${title} image`} className="w-full">
-                <Image
-                  alt={`${title} screenshot`}
-                  width={758}
-                  height={400}
-                  src={image}
-                  className="w-full h-full object-contain rounded-lg"
-                  style={{ maxHeight: "250px" }}
-                />
-              </button>
-            </DialogTrigger>
-            <DialogContent
-              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
-              title={title}
-            >
-              <Image
-                alt={`${title} screenshot (full view)`}
-                width={1200}
-                height={800}
-                src={image}
-                sizes="100vw"
-                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
-              />
-            </DialogContent>
-          </Dialog>
-        </div>
-
-        <div>
-          <div id="headers" className="pb-4 space-y-2">
-            <h2 className="font-bold text-xl text-neutral-900 dark:text-neutral-50">
-              {title}
-            </h2>
-            <p className="font-medium text-sm text-neutral-500 dark:text-neutral-400">
-              {shortDescription}
-            </p>
-          </div>
-          <p className="text-neutral-700 dark:text-neutral-300 py-4 text-sm leading-relaxed">
-            {description}
-          </p>
-          <div className="pb-4">
-            <ProjectLinksComp links={links} />
-          </div>
-          <div className="grid grid-cols-8 gap-2 pb-4">
-            {tech.map((techName) => {
-              const techDetails = getTechDetails(techName);
-              return (
-                <TechUsed
-                  key={techDetails.toolName}
-                  logoLocation={techDetails.imageLocation}
-                  hasDark={techDetails.hasDark}
-                  techName={techDetails.toolName}
-                />
-              );
-            })}
-          </div>
-
-          <div
-            id="date"
-            className="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            {completedTime.toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-            })}
-          </div>
-        </div>
+      <div className="lg:hidden space-y-5">
+        <ProjectImage title={title} image={image} maxHeight="250px" />
+        <ProjectContent
+          title={title}
+          completedTime={completedTime}
+          shortDescription={shortDescription}
+          description={description}
+          links={links}
+          tech={tech}
+          size="mobile"
+        />
       </div>
 
       {/* Desktop Layout */}
-      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-8">
-        <div className="order-2 lg:order-1 flex flex-col">
-          <div id="headers" className="pb-5 space-y-2">
-            <h2 className="font-bold text-2xl text-neutral-900 dark:text-neutral-50">
-              {title}
-            </h2>
-            <p className="font-medium text-base text-neutral-500 dark:text-neutral-400">
-              {shortDescription}
-            </p>
-          </div>
-          <p className="text-neutral-700 dark:text-neutral-300 pb-6 text-base leading-relaxed">
-            {description}
-          </p>
-          <div className="pb-5">
-            <ProjectLinksComp links={links} />
-          </div>
-          <div className="grid grid-cols-10 gap-3 pb-5">
-            {tech.map((techName) => {
-              const techDetails = getTechDetails(techName);
-              return (
-                <TechUsed
-                  key={techDetails.toolName}
-                  logoLocation={techDetails.imageLocation}
-                  hasDark={techDetails.hasDark}
-                  techName={techDetails.toolName}
-                />
-              );
-            })}
-          </div>
-
-          <div
-            id="date"
-            className="text-sm text-neutral-500 dark:text-neutral-400 mt-auto"
-          >
-            {completedTime.toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-            })}
-          </div>
+      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-10">
+        <div className="flex flex-col">
+          <ProjectContent
+            title={title}
+            completedTime={completedTime}
+            shortDescription={shortDescription}
+            description={description}
+            links={links}
+            tech={tech}
+            size="desktop"
+          />
         </div>
-        <div className="order-1 lg:order-2 max-h-[400px] hover:cursor-pointer group">
-          <Dialog>
-            <DialogTrigger asChild>
-              <button
-                aria-label={`Open ${title} image`}
-                className="w-full rounded-xl overflow-hidden transition duration-300 ease-out lg:hover:shadow-2xl lg:hover:shadow-blue-500/20 lg:hover:-translate-y-1"
-              >
-                <Image
-                  alt={`${title} screenshot`}
-                  width={758}
-                  height={400}
-                  src={image}
-                  className="w-full h-full object-contain rounded-xl transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                  style={{ maxHeight: "400px" }}
-                />
-              </button>
-            </DialogTrigger>
-            <DialogContent
-              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
-              title={title}
-            >
-              <Image
-                alt={`${title} screenshot (full view)`}
-                width={1920}
-                height={1080}
-                src={image}
-                sizes="100vw"
-                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
-              />
-            </DialogContent>
-          </Dialog>
+        <div>
+          <ProjectImage title={title} image={image} />
         </div>
       </div>
     </div>
@@ -232,156 +233,39 @@ export const ProjectInverted = ({
   return (
     <div
       className={cn(
-        "w-full py-8 md:py-14",
+        "w-full py-10 md:py-14",
         !lastProject && "border-b border-neutral-200 dark:border-neutral-800"
       )}
     >
       {/* Mobile Layout */}
-      <div className="lg:hidden space-y-6">
-        <div className="max-h-[250px] hover:cursor-pointer">
-          <Dialog>
-            <DialogTrigger asChild>
-              <button aria-label={`Open ${title} image`} className="w-full">
-                <Image
-                  alt={`${title} screenshot`}
-                  width={758}
-                  height={400}
-                  src={image}
-                  className="w-full h-full object-contain rounded-lg"
-                  style={{ maxHeight: "250px" }}
-                />
-              </button>
-            </DialogTrigger>
-            <DialogContent
-              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
-              title={title}
-            >
-              <Image
-                alt={`${title} screenshot (full view)`}
-                width={1200}
-                height={800}
-                src={image}
-                sizes="100vw"
-                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
-              />
-            </DialogContent>
-          </Dialog>
-        </div>
-
-        <div>
-          <div id="headers" className="pb-4 space-y-2">
-            <h2 className="font-bold text-xl text-neutral-900 dark:text-neutral-50">
-              {title}
-            </h2>
-            <p className="font-medium text-sm text-neutral-500 dark:text-neutral-400">
-              {shortDescription}
-            </p>
-          </div>
-          <p className="text-neutral-700 dark:text-neutral-300 py-4 text-sm leading-relaxed">
-            {description}
-          </p>
-          <div className="pb-4">
-            <ProjectLinksComp links={links} />
-          </div>
-          <div className="grid grid-cols-8 gap-2 pb-4">
-            {tech.map((techName) => {
-              const techDetails = getTechDetails(techName);
-              return (
-                <TechUsed
-                  key={techDetails.toolName}
-                  logoLocation={techDetails.imageLocation}
-                  hasDark={techDetails.hasDark}
-                  techName={techDetails.toolName}
-                />
-              );
-            })}
-          </div>
-
-          <div
-            id="date"
-            className="text-sm text-neutral-500 dark:text-neutral-400"
-          >
-            {completedTime.toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-            })}
-          </div>
-        </div>
+      <div className="lg:hidden space-y-5">
+        <ProjectImage title={title} image={image} maxHeight="250px" />
+        <ProjectContent
+          title={title}
+          completedTime={completedTime}
+          shortDescription={shortDescription}
+          description={description}
+          links={links}
+          tech={tech}
+          size="mobile"
+        />
       </div>
 
       {/* Desktop Layout - Inverted */}
-      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-8">
-        <div className="order-1 max-h-[400px] hover:cursor-pointer group">
-          <Dialog>
-            <DialogTrigger asChild>
-              <button
-                aria-label={`Open ${title} image`}
-                className="w-full rounded-xl overflow-hidden transition duration-300 ease-out lg:hover:shadow-2xl lg:hover:shadow-blue-500/20 lg:hover:-translate-y-1"
-              >
-                <Image
-                  alt={`${title} screenshot`}
-                  width={758}
-                  height={400}
-                  src={image}
-                  className="w-full h-full object-contain rounded-xl transition-transform duration-300 ease-out group-hover:scale-[1.02]"
-                  style={{ maxHeight: "400px" }}
-                />
-              </button>
-            </DialogTrigger>
-            <DialogContent
-              className="w-auto max-w-none p-0 bg-transparent border-none shadow-none sm:rounded-none [&>button]:hidden"
-              title={title}
-            >
-              <Image
-                alt={`${title} screenshot (full view)`}
-                width={1920}
-                height={1080}
-                src={image}
-                sizes="100vw"
-                className="w-auto h-auto max-w-[90vw] max-h-[90vh] object-contain"
-              />
-            </DialogContent>
-          </Dialog>
+      <div className="hidden lg:grid lg:grid-cols-2 lg:gap-10">
+        <div>
+          <ProjectImage title={title} image={image} />
         </div>
-
-        <div className="order-2 flex flex-col">
-          <div id="headers" className="pb-5 space-y-2">
-            <h2 className="font-bold text-2xl text-neutral-900 dark:text-neutral-50">
-              {title}
-            </h2>
-            <p className="font-medium text-base text-neutral-500 dark:text-neutral-400">
-              {shortDescription}
-            </p>
-          </div>
-          <p className="text-neutral-700 dark:text-neutral-300 pb-6 text-base leading-relaxed">
-            {description}
-          </p>
-          <div className="pb-5">
-            <ProjectLinksComp links={links} />
-          </div>
-          <div className="grid grid-cols-10 gap-3 pb-5">
-            {tech.map((techName) => {
-              const techDetails = getTechDetails(techName);
-              return (
-                <TechUsed
-                  key={techDetails.toolName}
-                  logoLocation={techDetails.imageLocation}
-                  hasDark={techDetails.hasDark}
-                  techName={techDetails.toolName}
-                />
-              );
-            })}
-          </div>
-
-          <div
-            id="date"
-            className="text-sm text-neutral-500 dark:text-neutral-400 mt-auto"
-          >
-            {completedTime.toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "short",
-            })}
-          </div>
+        <div className="flex flex-col">
+          <ProjectContent
+            title={title}
+            completedTime={completedTime}
+            shortDescription={shortDescription}
+            description={description}
+            links={links}
+            tech={tech}
+            size="desktop"
+          />
         </div>
       </div>
     </div>
@@ -401,31 +285,19 @@ export const EmptyProject = () => {
 
 const ProjectLinksComp = ({ links }: LinksProps) => {
   return (
-    <div
-      id="links"
-      className="flex flex-wrap gap-3 md:flex-nowrap md:items-center text-sm text-blue-600 dark:text-blue-400"
-    >
-      {links.map((link, index) => {
-        return (
-          <Fragment key={link.linkTitle}>
-            <div key={link.linkTitle}>
-              <Link
-                href={link.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-700 dark:hover:text-blue-300 transition-colors font-medium"
-              >
-                {link.linkTitle}
-              </Link>
-            </div>
-            {index < links.length - 1 && (
-              <div className="text-neutral-300 dark:text-neutral-600 select-none">
-                |
-              </div>
-            )}
-          </Fragment>
-        );
-      })}
+    <div className="flex flex-wrap gap-2">
+      {links.map((link) => (
+        <Link
+          key={link.linkTitle}
+          href={link.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium rounded-md border border-neutral-200 dark:border-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors"
+        >
+          {link.linkTitle}
+          <ExternalLinkIcon className="w-3 h-3" />
+        </Link>
+      ))}
     </div>
   );
 };
