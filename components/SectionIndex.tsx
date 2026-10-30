@@ -32,7 +32,7 @@ export default function SectionIndex({ sections }: { sections: Section[] }) {
         aria-label="Back to top"
         className="size-8 flex-none overflow-hidden rounded-full bg-raised transition-transform duration-400 ease-spring hover:-rotate-12 hover:scale-108"
       >
-        <Image src="/avatar.jpg" alt="" width={64} height={64} unoptimized className="size-full object-cover" priority />
+        <Image src="/avatar.jpg" alt="" width={64} height={64} unoptimized className="size-full object-cover" preload />
       </a>
       <span
         onPointerLeave={hide}

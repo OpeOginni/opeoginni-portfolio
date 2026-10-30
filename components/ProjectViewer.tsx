@@ -91,7 +91,7 @@ export default function ProjectViewer({ projects }: { projects: Project[] }) {
                 fill
                 sizes="(max-width: 768px) 100vw, 768px"
                 quality={90}
-                priority={i === 0}
+                preload={i === 0}
                 className={screenFit[p.screen.fit]}
               />
             )}
