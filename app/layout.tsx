@@ -1,16 +1,20 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
 import { Caveat, Schibsted_Grotesk } from "next/font/google";
-import { profile } from "@/lib/content";
 import "./globals.css";
 
 const schibsted = Schibsted_Grotesk({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-schibsted" });
 const caveat = Caveat({ subsets: ["latin"], weight: ["500"], variable: "--font-caveat" });
 
+const title = "Ope Oginni";
+const description = "My personal portfolio site.";
+
 export const metadata: Metadata = {
-  title: profile.name,
-  description: profile.lede,
-  icons: { icon: "/favicon/logo.svg", apple: "/favicon/logo.png" },
+  metadataBase: new URL("https://opeoginni.dev"),
+  title,
+  description,
+  openGraph: { title, description, url: "/", siteName: title, type: "website" },
+  twitter: { card: "summary", title, description, creator: "@OpeOginni" },
 };
 
 export const viewport: Viewport = {
