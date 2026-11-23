@@ -20,7 +20,7 @@ import { getChelseaMatches } from "@/lib/match";
 // The page is static apart from the match card, which refreshes with this
 export const revalidate = 1800;
 
-const heading = "mb-4 text-[15px] font-normal text-grey";
+const heading = "mb-5 text-lg font-semibold tracking-[-0.01em] text-ink";
 const section = "mt-[4.5rem] sm:mt-[6.5rem]";
 const headerLink = "link text-grey hover:text-ink hover:decoration-solid hover:decoration-ink";
 

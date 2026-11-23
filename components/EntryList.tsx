@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { Entry, Logo } from "@/lib/content";
 
-const logoStyle: Record<Logo["style"], string> = {
+export const logoStyle: Record<Logo["style"], string> = {
   tile: "rounded-md bg-white p-0.5 object-contain",
   bare: "rounded-md object-cover",
   mark: "rounded-md bg-[#2a2626] p-1 object-contain",
