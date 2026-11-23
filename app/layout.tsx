@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${schibsted.variable} ${caveat.variable}`}>
-      <body className="bg-ground px-6 font-sans text-[15px] leading-[1.55] text-ink antialiased">
+      <body className="overflow-x-clip bg-ground px-6 font-sans text-[15px] leading-[1.55] text-ink antialiased">
         {children}
         <Analytics />
       </body>

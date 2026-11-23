@@ -22,8 +22,8 @@ export type Project = {
   description: string;
   links: { label: string; href: string }[];
   tech: Tech[];
-  screen: { src: string; alt: string; fit: "cover" | "cover-top" | "contain" | "logo"; background?: string };
-  thumb: { src: string; fit: "cover" | "cover-top" | "contain" | "center" | "shield"; background?: string };
+  logo: Logo;
+  screen: { src: string; alt: string; fit: "cover" | "cover-top" | "logo" };
 };
 
 export const profile = {
@@ -84,21 +84,35 @@ const tech = {
   solidity: { name: "Solidity", icon: "/tech/solidity.svg", invert: true },
   postgresql: { name: "PostgreSQL", icon: "/tech/postgresql.svg" },
   elevenlabs: { name: "ElevenLabs", icon: "/tech/elevenlabs.svg", invert: true },
+  rust: { name: "Rust", icon: "/tech/rust.svg", invert: true },
 } satisfies Record<string, Tech>;
 
 export const projects: Project[] = [
   {
-    name: "GitTerm",
+    name: "Gitterm",
     years: "2025–",
     description:
-      "A self-hostable control plane for running coding agents like OpenCode and T3 Code in cloud workspaces, with your own keys. Pause, resume, share and preview from any device.",
+      "Cloud sandboxes for the coding agent on your laptop, or a cloud workspace for the whole agent that you can reach from your phone or Slack. Works with OpenCode, Codex and Claude Code, on the cloud provider you pick.",
     links: [
       { label: "gitterm.dev", href: "https://gitterm.dev" },
       { label: "Source", href: "https://github.com/OpeOginni/gitterm" },
     ],
     tech: [tech.typescript, tech.bun, tech.docker, tech.opencode, tech.t3],
-    screen: { src: "/projects/gitterm-home.png", alt: "GitTerm home page", fit: "cover" },
-    thumb: { src: "/projects/thumbs/gitterm.webp", fit: "cover" },
+    logo: { src: "/logos/gitterm.png", style: "bare" },
+    screen: { src: "/projects/gitterm.png", alt: "Gitterm home page", fit: "cover" },
+  },
+  {
+    name: "Hex Meetings",
+    years: "2026",
+    description:
+      "A macOS companion for Hex that turns recorded calls into summaries, action items and follow-ups with the coding agent you already use. Preview the result, then post it to Slack, Notion, GitHub or Linear.",
+    links: [
+      { label: "hex-meetings.opeoginni.dev", href: "https://hex-meetings.opeoginni.dev/" },
+      { label: "Source", href: "https://github.com/OpeOginni/hex-meetings" },
+    ],
+    tech: [tech.rust, tech.opencode],
+    logo: { src: "/logos/hex-meetings.png", style: "bare" },
+    screen: { src: "/projects/hex-meetings.webp", alt: "Hex Meetings with a call summary and action items", fit: "cover-top" },
   },
   {
     name: "Self Defence",
@@ -107,8 +121,8 @@ export const projects: Project[] = [
       'A party game for friends. Vote on who best fits a "Who would...?" question, then that player gets 50 seconds to talk their way out before the revote.',
     links: [{ label: "selfdefence.app", href: "https://www.selfdefence.app/" }],
     tech: [tech.nextjs, tech.convex],
+    logo: { src: "/logos/self-defence-shield.png", style: "icon" },
     screen: { src: "/projects/self-defence.png", alt: "Self Defence home screen", fit: "cover" },
-    thumb: { src: "/logos/self-defence-shield.png", fit: "shield", background: "#0e0c1a" },
   },
   {
     name: "StarBridge",
@@ -117,8 +131,8 @@ export const projects: Project[] = [
       "A Telegram bot that swaps Telegram Stars for USDT and USDC on TON, BSC and opBNB. Over 2,000 users and $8k in swaps in its first two months.",
     links: [{ label: "Open bot", href: "https://t.me/StarBridgeTGBot" }],
     tech: [tech.typescript, tech.bun, tech.mongodb, tech.solidity],
+    logo: { src: "/logos/starbridge.jpg", style: "bare" },
     screen: { src: "/logos/starbridge.jpg", alt: "StarBridge logo", fit: "logo" },
-    thumb: { src: "/logos/starbridge.jpg", fit: "center" },
   },
   {
     name: "Redmond Consultants",
@@ -127,8 +141,8 @@ export const projects: Project[] = [
       "A language learning platform used by corporate teams across Germany, with AI generated audio for every lesson.",
     links: [{ label: "Open app", href: "https://app.redmondconsultants.com/" }],
     tech: [tech.nextjs, tech.postgresql, tech.elevenlabs, tech.docker],
+    logo: { src: "/logos/redmond.png", style: "tile" },
     screen: { src: "/projects/redmond-app.png", alt: "Redmond flashcard practice, German to French", fit: "cover-top" },
-    thumb: { src: "/projects/thumbs/redmond-app.webp", fit: "cover-top" },
   },
 ];
 
@@ -167,7 +181,7 @@ export const talks: Entry[] = [
     name: "Beyond the IDE",
     href: "https://www.linkedin.com/posts/awsugfrankfurt-awscommunityday-aws-ugcPost-7503726305926975488-JnP_/",
     logo: { src: "/logos/aws.png", style: "tile" },
-    line: "OpenCode agents in your AWS environment. AWS User Group Frankfurt, with a live GitTerm demo",
+    line: "OpenCode agents in your AWS environment. AWS User Group Frankfurt, with a live Gitterm demo",
     years: "Sep 2026",
   },
 ];
