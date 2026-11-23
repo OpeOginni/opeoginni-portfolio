@@ -48,7 +48,7 @@
     50% { opacity: 0.35; }
   }
   @keyframes arrive {
-    0%, 35% { color: var(--color-ink); }
+    0%, 35% { color: var(--color-marker); }
   }
 }
 
@@ -78,7 +78,7 @@
   section {
     scroll-margin-top: 2rem;
   }
-  /* Landing on a section from the index briefly brightens its heading */
+  /* Landing on a section from the index briefly tints its heading blue */
   section:target > h2 {
     animation: arrive 1.8s ease-out;
   }
